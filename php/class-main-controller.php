@@ -112,7 +112,7 @@ class Main_Controller {
 	 *
 	 * @since 0.1.0
 	 */
-	function __construct(
+	public function __construct(
 		Activator $activator,
 		Deactivator $deactivator,
 		Uninstaller $uninstaller,

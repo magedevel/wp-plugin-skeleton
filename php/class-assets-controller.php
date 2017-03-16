@@ -111,7 +111,7 @@ class Assets_Controller {
 		$admin_css_path = dirname( $this->plugin_root ) . '/css/admin.css';
 
 		wp_enqueue_style(
-			$this->plugin_textdomain . '-public-css',
+			$this->plugin_textdomain . '-admin-css',
 			$admin_css_url,
 			array(),
 			filemtime( $admin_css_path ),
@@ -122,7 +122,7 @@ class Assets_Controller {
 		$admin_js_path  = dirname( $this->plugin_root ) . '/js/admin.js';
 
 		wp_enqueue_script(
-			$this->plugin_textdomain . '-public-js',
+			$this->plugin_textdomain . '-admin-js',
 			$admin_js_url,
 			array( 'jquery' ),
 			filemtime( $admin_js_path ),

@@ -4,7 +4,7 @@ module.exports = {
 	options: {
 		// Import our JSHint config options.
 		// -------------------------------------
-		jshintrc: 'grunt/config/jshintrc.json',
+		jshintrc: 'tools/grunt/config/jshintrc.json',
 		// Output the results to file.
 		// -------------------------------------
 		reporterOutput: '<%= pluginInfo.reports_path %>/jshint.txt',

@@ -5,6 +5,6 @@ module.exports = {
 	// -------------------------------------
 	jsdoc: {
 		src: [ '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/**/*.js' ],
-		dest: '<%= pluginInfo.docs_path_prod %>/js'
+		dest: '<%= pluginInfo.docs_path %>/js'
 	}
 };

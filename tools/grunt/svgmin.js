@@ -21,7 +21,7 @@ module.exports = {
             expand: true,
             cwd: '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.img_dir %>',
             src: ['**/*.svg'],
-            dest: '<%= siteInfo.assets_path_prod %>/<%= pluginInfo.img_dir %>'
+            dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.img_dir %>'
         }]
     }
 };

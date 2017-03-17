@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 				// Name of your main Sass file and
 				// consequent CSS file.
 				// -------------------------------------
-				admin_scss_file: 'admin'
+				admin_scss_file: 'admin',
 				public_scss_file: 'public'
 			},
 

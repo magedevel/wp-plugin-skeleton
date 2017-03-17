@@ -29,39 +29,39 @@ define( 'DTG_PLUGIN_NAME_TEXT_DOMAIN', 'plugin-name' );
 define( 'DTG_PLUGIN_NAME_PREFIX', 'plugin_name' );
 
 // Classes.
+require_once 'php/class-settings.php';
 require_once 'php/class-helpers.php';
 require_once 'php/class-activator.php';
 require_once 'php/class-deactivator.php';
 require_once 'php/class-uninstaller.php';
 require_once 'php/class-assets-controller.php';
-require_once 'php/class-settings.php';
 require_once 'php/class-customizer.php';
 require_once 'php/class-main-controller.php';
 
 // Namespaces.
+use dtg\plugin_name\Settings;
 use dtg\plugin_name\Helpers;
 use dtg\plugin_name\Activator;
 use dtg\plugin_name\Deactivator;
 use dtg\plugin_name\Uninstaller;
 use dtg\plugin_name\Assets_Controller;
-use dtg\plugin_name\Settings;
 use dtg\plugin_name\Customizer;
 use dtg\plugin_name\Main_Controller;
 
 // Instances.
 $helpers				  = new Helpers();
+$settings                 = new Settings();
 $activator    			  = new Activator();
 $deactivator  			  = new Deactivator();
 $uninstaller  			  = new Uninstaller();
 $assets_controller  	  = new Assets_Controller();
-$settings                 = new Settings();
 $customizer               = new Customizer();
 $main_controller          = new Main_Controller(
+	$settings,
 	$activator,
 	$deactivator,
 	$uninstaller,
 	$assets_controller,
-	$settings,
 	$customizer
 );
 

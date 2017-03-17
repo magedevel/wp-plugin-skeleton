@@ -113,19 +113,19 @@ class Main_Controller {
 	 * @since 0.1.0
 	 */
 	public function __construct(
+		Settings $settings,
 		Activator $activator,
 		Deactivator $deactivator,
 		Uninstaller $uninstaller,
 		Assets_Controller $assets_controller,
-		Settings $settings,
 		Customizer $customizer
 		) {
 
+		$this->settings				= $settings;
 		$this->activator			= $activator;
 		$this->deactivator			= $deactivator;
 		$this->uninstaller			= $uninstaller;
 		$this->assets_controller	= $assets_controller;
-		$this->settings				= $settings;
 		$this->customizer			= $customizer;
 		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
 		$this->plugin_name		 	= DTG_PLUGIN_NAME_NAME;
@@ -145,11 +145,11 @@ class Main_Controller {
 			$this->plugin_root . '/../languages'
 		);
 
+		$this->settings->run();
 		$this->activator->run();
 		$this->deactivator->run();
 		$this->uninstaller->run();
 		$this->assets_controller->run();
-		$this->settings->run();
 		$this->customizer->run();
 	}
 }

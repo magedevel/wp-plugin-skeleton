@@ -130,6 +130,9 @@ class Activator {
 			// Delete the notices transients.
 			delete_transient( $this->plugin_prefix . '_activated' );
 			delete_transient( $this->plugin_prefix . '_activation_notices' );
+
+			// Delete the deactivation transient if it exists.
+			delete_transient( $this->plugin_prefix . '_deactivated' );
 		}
 	}
 }

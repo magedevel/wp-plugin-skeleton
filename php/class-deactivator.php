@@ -76,6 +76,7 @@ class Deactivator {
 	 * @since	0.1.0
 	 */
 	public function deactivate() {
-
+		// Set a transient to confirm activation.
+		set_transient( $this->plugin_prefix . '_deactivated', true, 10 );
 	}
 }

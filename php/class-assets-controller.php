@@ -106,9 +106,9 @@ class Assets_Controller {
 	 */
 	public function public_enqueue_scripts() {
 
-		$do_public_enqueue     = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_enqueue', true );
-		$do_public_css_enqueue = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_css_enqueue', true );
-		$do_public_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_js_enqueue', true );
+		$do_public_enqueue     = apply_filters( $this->plugin_prefix . 'do_public_enqueue', true );
+		$do_public_css_enqueue = apply_filters( $this->plugin_prefix . 'do_public_css_enqueue', true );
+		$do_public_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_public_js_enqueue', true );
 
 		// Public CSS.
 		if ( $do_public_enqueue && $do_public_css_enqueue ) {
@@ -146,9 +146,9 @@ class Assets_Controller {
 	 */
 	public function admin_enqueue_scripts() {
 
-		$do_admin_enqueue     = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_enqueue', true );
-		$do_admin_css_enqueue = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_css_enqueue', true );
-		$do_admin_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_js_enqueue', true );
+		$do_admin_enqueue     = apply_filters( $this->plugin_prefix . 'do_admin_enqueue', true );
+		$do_admin_css_enqueue = apply_filters( $this->plugin_prefix . 'do_admin_css_enqueue', true );
+		$do_admin_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_admin_js_enqueue', true );
 
 		if ( $do_admin_enqueue && $do_admin_css_enqueue ) {
 			$admin_css_url  = plugins_url( 'css/admin' . $this->asset_suffix . '.css', $this->plugin_root );
@@ -183,7 +183,7 @@ class Assets_Controller {
 	 * @since	0.1.0
 	 */
 	function customizer_preview_js() {
-		$do_customizer_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_customizer_js_enqueue', true );
+		$do_customizer_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_customizer_js_enqueue', true );
 
 		if ( $do_customizer_js_enqueue ) {
 			$customizer_js_url  = plugins_url( 'js/customizer' . $this->asset_suffix . '.js', $this->plugin_root );

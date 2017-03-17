@@ -103,11 +103,12 @@ class Main_Controller {
 	/**
 	 * Constructor.
 	 *
+	 * @param 	Settings		  $settings          Define the settings page.
 	 * @param 	Activator		  $activator		 Take action on plugin activation.
 	 * @param 	Deactivator		  $deactivator		 Take action on plugin deactivation.
 	 * @param 	Uninstaller		  $uninstaller		 Take action on plugin uninstall.
+	 * @param 	Notices			  $notices           Display notices in various conditions.
 	 * @param 	Assets_Controller $assets_controller Enqueue the public and admin assets.
-	 * @param 	Settings		  $settings          Define the settings page.
 	 * @param 	Customizer		  $customizer        Define the customizer options.
 	 *
 	 * @since 0.1.0

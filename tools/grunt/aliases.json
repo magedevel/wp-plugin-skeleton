@@ -1,14 +1,11 @@
 {
-	"analyse": [
-		"parker"
-	],
 	"build": [
 		"default",
 		"watch"
 	],
 	"document": [
 		"jsdoc",
-		"phpdoc:all",
+		"phpdoc",
 		"sassdoc",
 		"notify:docs"
 	],
@@ -19,12 +16,9 @@
 	],
 	"lint": [
 		"jshint",
-		"phplint:all",
+		"phplint",
 		"sasslint",
 		"notify:linting"
-	],
-	"maxfilesize": [
-		"maxFilesize"
 	],
 	"spritesmith": [
 		"sprite"

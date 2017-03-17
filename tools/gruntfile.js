@@ -10,24 +10,23 @@ module.exports = function(grunt) {
 			staticMappings: {
 				sasslint:    'grunt-sass-lint',
 				sprite:      'grunt-spritesmith',
-				maxfilesize: 'grunt-max-filesize',
 			}
 		},
 		// -----------------------------------------------------------------------------
 		// Anything you define within the main 'data' object can be accessed
 		// both in the Gruntfile and in the individual task configurations e.g.
-		// <%= pluginInfo.theme_name %>, <%= siteInfo.assets_path_raw %> etc.
+		// <%= pluginInfo.assets_path_raw %> etc.
 		// -----------------------------------------------------------------------------
 		data: {
 			// -------------------------------------
 			// Project specific settings.
 			// -------------------------------------
-			siteInfo: {
+			pluginInfo: {
 				// -------------------------------------
 				// The 'fancy' name for your project
 				// e.g. 'My First Website'.
 				// -------------------------------------
-				fancy_name: 'Ground Control',
+				fancy_name: 'Plugin Name',
 
 				// -------------------------------------
 				// Documentation path relative to the
@@ -42,11 +41,17 @@ module.exports = function(grunt) {
 				reports_path: 'tools/reports',
 
 				// -------------------------------------
+				// Reports path relative to the project
+				// root - NO trailing slash.
+				// -------------------------------------
+				tests_path: 'tools/tests',
+
+				// -------------------------------------
 				// Assets path relative to the project
 				// root - NO trailing slash.
 				// -------------------------------------
-				assets_path_raw: 'assets/',
-				assets_path: 'assets',
+				assets_path_dev: 'assets/dev',
+				assets_path_prod: 'assets/prod',
 
 				// -------------------------------------
 				// Image assets directory.
@@ -61,7 +66,7 @@ module.exports = function(grunt) {
 				// -------------------------------------
 				// Sass assets directory.
 				// -------------------------------------
-				sass_dir: 'sass',
+				scss_dir: 'scss',
 
 				// -------------------------------------
 				// CSS assets directory.
@@ -69,55 +74,11 @@ module.exports = function(grunt) {
 				css_dir: 'css',
 
 				// -------------------------------------
-				// Font assets directory.
-				// -------------------------------------
-				fonts_dir: 'fonts',
-
-				// -------------------------------------
-				// Icon assets directory
-				// -------------------------------------
-				icons_dir: 'ico',
-
-				// -------------------------------------
 				// Name of your main Sass file and
 				// consequent CSS file.
 				// -------------------------------------
-				sass_file: 'plugin'
-			},
-
-			// -------------------------------------
-			// Plugin specific settings
-			// -------------------------------------
-			pluginInfo: {
-				// -------------------------------------
-				// Theme assets directory.
-				// -------------------------------------
-				assets_dir: 'assets',
-
-				// -------------------------------------
-				// Theme images directory.
-				// -------------------------------------
-				img_dir: 'img',
-
-				// -------------------------------------
-				// Theme Javascript directory.
-				// -------------------------------------
-				js_dir: 'js',
-
-				// -------------------------------------
-				// Theme CSS directory.
-				// -------------------------------------
-				css_dir: 'css',
-
-				// -------------------------------------
-				// Theme fonts directory.
-				// -------------------------------------
-				fonts_dir: 'fonts',
-
-				// -------------------------------------
-				// Theme icons directory
-				icons_dir: 'ico'
-				// -------------------------------------
+				admin_scss_file: 'admin'
+				public_scss_file: 'public'
 			},
 
 			// -------------------------------------
@@ -125,7 +86,7 @@ module.exports = function(grunt) {
 			// for PUBLIC enqueues.
 			// -------------------------------------
 			concatPublic: [
-				'<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/plugin.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/public.js'
 			],
 
 			// -------------------------------------
@@ -133,7 +94,7 @@ module.exports = function(grunt) {
 			// for ADMIN enqueues.
 			// -------------------------------------
 			concatAdmin: [
-				'<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/plugin-admin.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/admin.js'
 			],
 
 			// -------------------------------------
@@ -141,7 +102,7 @@ module.exports = function(grunt) {
 			// for CUSTOMIZER enqueues.
 			// -------------------------------------
 			concatCustomizer: [
-				'<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/customizer.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/customizer.js'
 			],
 
 			// -------------------------------------
@@ -173,10 +134,6 @@ module.exports = function(grunt) {
 				//     dest: 'dest/'
 				// }
 				// -------------------------------------
-				{
-					src: ['<%= siteInfo.assets_path_raw %>/<%= siteInfo.fonts_dir %>/**'],
-					dest: '<%= siteInfo.assets_path %>/<%= pluginInfo.fonts_dir %>/'
-				}
 			]
 		}
 	});

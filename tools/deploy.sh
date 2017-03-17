@@ -9,7 +9,7 @@
 # https://github.com/GaryJones/wordpress-plugin-git-flow-svn-deploy.
 
 echo
-echo "WordPress Deployment for Ground Control ('ground-control')"
+echo "WordPress Deployment for Plugin Name ('plugin-name')"
 echo
 echo "Let's collect some information first."
 echo
@@ -18,14 +18,14 @@ echo
 
 # Set up some default values. Feel free to change these in your own script
 CURRENTDIR=`pwd`
-PLUGINSLUG="ground-control"
+PLUGINSLUG="plugin-name"
 default_svnpath="/tmp/$PLUGINSLUG"
 default_svnurl="https://plugins.svn.wordpress.org/$PLUGINSLUG"
-default_svnuser="mwtsn"
+default_svnuser="davetgreen"
 default_plugindir="$CURRENTDIR"
 default_mainfile="plugin.php"
 MAINFILE="plugin.php"
-SVNUSER="mwtsn"
+SVNUSER="davetgreen"
 
 # Get some user input
 # Can't use the -i flag for read, since that doesn't work for bash 3
@@ -152,12 +152,11 @@ fi
 echo "Moving assets"
 # Make the directory if it doesn't already exist
 mkdir -p $SVNPATH/assets/
-mv $SVNPATH/trunk/assets/raw/repository/* $SVNPATH/assets/
+mv $SVNPATH/trunk/assets/wporg/* $SVNPATH/assets/
 svn add --force $SVNPATH/assets/
 svn delete --force $SVNPATH/trunk/assets
 # We dont want all of our toys in the SVN repo, so lets remove them:
 echo "Deleting unwanted assets"
-svn delete --force $SVNPATH/trunk/deploy.sh
 svn delete --force $SVNPATH/trunk/examples
 svn delete --force $SVNPATH/trunk/tools
 svn delete --force $SVNPATH/trunk/.DS_Store

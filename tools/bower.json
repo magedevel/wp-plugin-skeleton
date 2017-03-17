@@ -1,8 +1,8 @@
 {
-	"name": "ground-control",
+	"name": "plugin-name",
 	"version": "0.1.0",
 	"authors": [
-		"mwtsn, davetgreen, mkdo"
+		"davetgreen"
 	],
 	"license": "MIT",
 	"private": true,

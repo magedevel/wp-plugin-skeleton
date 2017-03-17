@@ -66,8 +66,14 @@ class Assets_Controller {
 	 * @since	0.1.0
 	 */
 	public function run() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'public_enqueue_scripts' ), 10 );
+		// Enqueue Front-end JS.
+		add_action( 'public_enqueue_scripts', array( $this, 'public_enqueue_scripts' ), 10 );
+
+		// Enqueue Admin JS.
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10 );
+
+		// Enqueue Customizer JS.
+		add_action( 'customize_preview_init', array( $this, 'customizer_preview_js' ), 10 );
 	}
 
 	/**
@@ -128,5 +134,17 @@ class Assets_Controller {
 			filemtime( $admin_js_path ),
 			true
 		);
+	}
+
+	/**
+	 * Enqueue live preview JS handlers.
+	 *
+	 * @since	0.1.0
+	 */
+	function customizer_preview_js() {
+		$customizer_js_url  = plugins_url( 'js/customizer.min.js', $this->plugin_root );
+		$customizer_js_path = dirname( $this->plugin_root ) . '/js/customizer.min.js';
+
+		wp_enqueue_script( $this->plugin_textdomain . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
 	}
 }

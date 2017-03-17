@@ -10,10 +10,10 @@ module.exports = {
 	// Process plugin code.
 	// -------------------------------------
 	plugin: {
-	  files: [ '/**/*.php' ],
+	  files: [ '/php/**/*.php', '/views/**/*.php' ],
 	  tasks: [
-		'phplint:plugin',
-		// 'phpdoc:theme',
+		'phplint',
+		'phpdoc:theme',
 		'notify:plugin'
 	  ]
 	},
@@ -21,7 +21,7 @@ module.exports = {
 	// Minify JPG & PNG images.
 	// -------------------------------------
 	images_jpg: {
-		files: [ '<%= siteInfo.assets_path_raw %>/<%= siteInfo.img_dir %>/**/*.{jpg,png,gif}' ],
+		files: [ '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.img_dir %>/**/*.{jpg,png,gif}' ],
 		tasks: [
 			'newer:imagemin',
 			'notify:images'
@@ -31,27 +31,27 @@ module.exports = {
 	// Minify SVG images.
 	// -------------------------------------
 	images_svg: {
-			files: [ '<%= siteInfo.assets_path_raw %>/<%= siteInfo.img_dir %>/**/*.svg' ],
-			tasks: [
-					'newer:svgmin',
-					'notify:images'
-			]
+		files: [ '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.img_dir %>/**/*.svg' ],
+		tasks: [
+			'newer:svgmin',
+			'notify:images'
+		]
 	},
 
 	// Process scripts.
 	// -------------------------------------
 	scripts: {
 		files: [
-			'<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/**/*.js',
-			'!<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/lib/modernizr-custom.js'
+			'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/**/*.js',
+			'!<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/modernizr-custom.js'
 		],
 		tasks: [
-			// 'jshint',
+			'jshint',
 			'modernizr',
 			'concat',
 			'uglify',
 			'clean',
-			// 'jsdoc',
+			'jsdoc',
 			'notify:scripts'
 		]
 	},
@@ -59,18 +59,14 @@ module.exports = {
 	// Process styles.
 	// -------------------------------------
 	styles: {
-		files: [ '<%= siteInfo.assets_path_raw %>/<%= siteInfo.sass_dir %>/**/*.scss' ],
+		files: [ '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.scss_dir %>/**/*.scss' ],
 		tasks: [
-			// 'scsslint',
+			'scsslint',
 			'spritesmith',
 			'sass',
 			'postcss',
 			'cssmin',
-			'maxfilesize:css',
-			'selector4096',
-			'copy:main_sourcemap',
-			'copy:other_sourcemaps',
-			// 'sassdoc',
+			'sassdoc',
 			'notify:styles'
 		]
 	}

@@ -4,7 +4,7 @@ module.exports = {
 	// Generate documentation for our JS.
 	// -------------------------------------
 	jsdoc: {
-		src: [ '<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/**/*.js' ],
-		dest: '<%= siteInfo.docs_path %>/js'
+		src: [ '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/**/*.js' ],
+		dest: '<%= pluginInfo.docs_path_prod %>/js'
 	}
 };

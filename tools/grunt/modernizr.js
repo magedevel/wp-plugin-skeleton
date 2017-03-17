@@ -36,13 +36,13 @@ module.exports = {
             "hidden"
         ],
         "devFile": "bower_components/modernizr/modernizr.js",
-        "dest": "<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/lib/_modernizr-custom.js",
+        "dest": "<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/_modernizr-custom.js",
         "crawl": true,
         "files": {
             "src": [
-                '<%= siteInfo.assets_path_raw %>/<%= siteInfo.sass_dir %>/**/*.scss',
-                '<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/**/*.js',
-                '!<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/lib/modernizr-custom.js'
+                '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.scss_dir %>/**/*.scss',
+                '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/**/*.js',
+                '!<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/modernizr-custom.js'
             ]
         }
     }

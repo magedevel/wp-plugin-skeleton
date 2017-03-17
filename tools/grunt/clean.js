@@ -6,7 +6,7 @@ module.exports = {
 	// -------------------------------------
 	clean_js: {
 		src: [
-			'<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/*.tmp.js'
+			'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/*.tmp.js'
 		]
 	}
 };

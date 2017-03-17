@@ -4,8 +4,8 @@ module.exports = {
 	options: {
 		configFile: 'config/.sasslint.yml',
 		formatter: 'stylish',
-		outputFile: '<%= siteInfo.reports_path %>/sasslint.xml'
+		outputFile: '<%= pluginInfo.reports_path %>/sasslint.xml'
 	},
-	target: ['<%= siteInfo.assets_path_raw %>/<%= siteInfo.sass_dir %>/**/*.scss']
+	target: ['<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.scss_dir %>/**/*.scss']
 };
 

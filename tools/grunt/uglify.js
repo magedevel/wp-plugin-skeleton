@@ -12,27 +12,27 @@ module.exports = {
 		// Generate a sourcemap for each
 		// Javascript file.
 		// -------------------------------------
-		sourceMap: true
+		sourceMap: false
 	},
 	// Public JS.
 	// -------------------------------------
 	public: {
 		files: {
-			'<%= siteInfo.assets_path %>/<%= pluginInfo.js_dir %>/plugin.min.js': [ '<%= concat.public.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/public.min.js': [ '<%= concat.public.dest %>' ]
 		}
 	},
 	// Admin JS.
 	// -------------------------------------
 	admin: {
 		files: {
-			'<%= siteInfo.assets_path %>/<%= pluginInfo.js_dir %>/plugin-admin.min.js': [ '<%= concat.admin.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/admin.min.js': [ '<%= concat.admin.dest %>' ]
 		}
 	},
 	// Customizer JS.
  	// -------------------------------------
 	customizer: {
 		files: {
-			'<%= siteInfo.assets_path %>/<%= pluginInfo.js_dir %>/customizer.min.js': [ '<%= concat.customizer.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/customizer.min.js': [ '<%= concat.customizer.dest %>' ]
 		}
 	},
 

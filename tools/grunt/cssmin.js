@@ -6,9 +6,9 @@ module.exports = {
 	all: {
 		files: [ {
 			expand: true,
-			cwd: '<%= siteInfo.css_dir %>',
+			cwd: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.css_dir %>',
 			src: ['*.css'],
-			dest: '<%= siteInfo.assets_path %>/<%= pluginInfo.css_dir %>',
+			dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.css_dir %>',
 			ext: '.min.css'
 		} ]
 	}

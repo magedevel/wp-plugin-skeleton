@@ -19,9 +19,9 @@ module.exports = {
     svg: {
         files: [{
             expand: true,
-            cwd: '<%= siteInfo.assets_path_raw %>/<%= siteInfo.img_dir %>',
+            cwd: '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.img_dir %>',
             src: ['**/*.svg'],
-            dest: '<%= siteInfo.assets_path %>/<%= pluginInfo.img_dir %>'
+            dest: '<%= siteInfo.assets_path_prod %>/<%= pluginInfo.img_dir %>'
         }]
     }
 };

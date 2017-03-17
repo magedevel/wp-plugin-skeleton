@@ -4,9 +4,9 @@ module.exports = {
 	// Generate documentation for our Sass.
 	// -------------------------------------
 	options: {
-		dest: '<%= siteInfo.docs_path %>/sass'
+		dest: '<%= pluginInfo.docs_path %>/scss'
 	},
 	sass: {
-		src: '<%= siteInfo.assets_path_raw %>/<%= siteInfo.sass_dir %>',
+		src: '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.scss_dir %>',
 	}
 };

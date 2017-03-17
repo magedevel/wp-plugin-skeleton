@@ -4,24 +4,18 @@
 module.exports = function( grunt ) {
 	grunt.registerTask( 'default', [
 		'sync',
-		// "lint",
+		"lint",
 		"spritesmith",
-		"grunticon",
-		"copy:grunticon",
 		"sass",
 		"postcss",
-		"copy:unminified_css",
 		"cssmin",
-		"maxfilesize:css",
-		"selector4096",
-		"copy:sourcemaps",
 		"modernizr",
 		"concat",
 		"uglify",
 		"newer:svgmin",
 		"newer:imagemin",
 		"clean",
-		// "document",
+		"document",
 		"notify:build"
 	] );
 };

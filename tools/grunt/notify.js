@@ -6,7 +6,7 @@ module.exports = {
 	build: {
 		options: {
 			title: 'Rebuild',
-			message: '<%= siteInfo.fancy_name %> is ready to rock!'
+			message: '<%= pluginInfo.fancy_name %> is ready to rock!'
 		}
 	},
 	// Notify once plugins are linted.
@@ -14,7 +14,7 @@ module.exports = {
 	code_plugins: {
 		options: {
 			title: 'PHP',
-			message: '<%= siteInfo.fancy_name %> plugin PHP is error free!'
+			message: '<%= pluginInfo.fancy_name %> plugin PHP is error free!'
 		}
 	},
 	// Notify once theme is linted.
@@ -22,7 +22,7 @@ module.exports = {
 	plugin: {
 		options: {
 			title: 'PHP',
-			message: '<%= siteInfo.fancy_name %> theme PHP is error free!'
+			message: '<%= pluginInfo.fancy_name %> theme PHP is error free!'
 		}
 	},
 	// Notify once scripts are concatenated
@@ -31,7 +31,7 @@ module.exports = {
 	scripts: {
 		options: {
 			title: 'Scripts',
-			message: '<%= siteInfo.fancy_name %> scripts processed!'
+			message: '<%= pluginInfo.fancy_name %> scripts processed!'
 		}
 	},
 	// Notify once styles are processed and
@@ -40,7 +40,7 @@ module.exports = {
 	styles: {
 		options: {
 			title: 'Styles',
-			message: '<%= siteInfo.fancy_name %> styles processed!'
+			message: '<%= pluginInfo.fancy_name %> styles processed!'
 		}
 	},
 	// Notify once images are minified.
@@ -48,7 +48,7 @@ module.exports = {
 	images: {
 		options: {
 			title: 'Images',
-			message: '<%= siteInfo.fancy_name %> images processed!'
+			message: '<%= pluginInfo.fancy_name %> images processed!'
 		}
 	},
 	// Notify once all documentation has
@@ -57,7 +57,7 @@ module.exports = {
 	docs: {
 		options: {
 			title: 'Docs',
-			message: '<%= siteInfo.fancy_name %> docs generated!'
+			message: '<%= pluginInfo.fancy_name %> docs generated!'
 		}
 	},
 	// Notify once all code has been linted.
@@ -65,7 +65,7 @@ module.exports = {
 	linting: {
 		options: {
 			title: 'Linting',
-			message: '<%= siteInfo.fancy_name %> files linted!'
+			message: '<%= pluginInfo.fancy_name %> files linted!'
 		}
 	},
 	// Notify once all images have been
@@ -74,7 +74,7 @@ module.exports = {
 	images: {
 		options: {
 			title: 'Images',
-			message: '<%= siteInfo.fancy_name %> images minified!'
+			message: '<%= pluginInfo.fancy_name %> images minified!'
 		}
 	}
 };

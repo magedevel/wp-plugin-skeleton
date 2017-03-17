@@ -7,7 +7,7 @@ module.exports = {
 		jshintrc: 'grunt/config/jshintrc.json',
 		// Output the results to file.
 		// -------------------------------------
-		reporterOutput: '<%= siteInfo.reports_path %>/jshint.txt',
+		reporterOutput: '<%= pluginInfo.reports_path %>/jshint.txt',
 		reporter: require( 'jshint-stylish' ),
 	},
 	// Lint our Javascript.
@@ -20,8 +20,8 @@ module.exports = {
 			force: true
 		},
 		src: [
-			'<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/**/*.js',
-			'!<%= siteInfo.assets_path_raw %>/<%= siteInfo.js_dir %>/lib/modernizr-custom.js'
+			'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/**/*.js',
+			'!<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/modernizr-custom.js'
 		]
 	}
 };

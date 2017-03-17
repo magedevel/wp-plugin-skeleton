@@ -10,9 +10,9 @@ module.exports = {
 		},
 		files: [ {
 			expand: true,
-			cwd: '<%= siteInfo.assets_path_raw %>/<%= siteInfo.img_dir %>',
+			cwd: '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.img_dir %>',
 			src: [ '**/*.{png,jpg,gif}' ],
-			dest: '<%= siteInfo.assets_path %>/<%= pluginInfo.img_dir %>'
+			dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.img_dir %>'
 		} ]
 	}
 };

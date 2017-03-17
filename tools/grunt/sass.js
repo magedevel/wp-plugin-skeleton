@@ -5,16 +5,14 @@ module.exports = {
 	// -------------------------------------
 	sass: {
 		options: {
-			sourceMap: true,
-			sourceMapContents: true,
-			sourceMapRoot: 'assets/css',
+			sourceMap: false,
 			style: 'compressed'
 		},
 		files: [ {
 			expand: true,
-			cwd: '<%= siteInfo.assets_path_raw %>/<%= siteInfo.sass_dir %>',
+			cwd: '<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.scss_dir %>',
 			src: [ '*.scss' ],
-			dest: '<%= siteInfo.assets_path %>/<%= siteInfo.css_dir %>',
+			dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.css_dir %>',
 			ext: '.css'
 		} ]
 	}

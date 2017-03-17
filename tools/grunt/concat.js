@@ -8,36 +8,36 @@ module.exports = {
 	// -------------------------------------
 	public: {
 		src: ['<%= concatPublic %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/plugin.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/public.js',
 		nonull: true
 	},
 	public_min: {
 		src: ['<%= concatPublic %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/plugin.tmp.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/public.tmp.js',
 		nonull: true
 	},
 	// Admin JS.
 	// -------------------------------------
 	admin: {
 		src: ['<%= concatAdmin %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/plugin-admin.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/admin.js',
 		nonull: true
 	},
 	admin_min: {
 		src: ['<%= concatAdmin %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/plugin-admin.tmp.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/admin.tmp.js',
 		nonull: true
 	},
 	// Customizer JS.
 	// -------------------------------------
 	customizer: {
 		src: ['<%= concatCustomizer %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/customizer.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/customizer.js',
 		nonull: true
 	},
 	customizer_min: {
 		src: ['<%= concatCustomizer %>'],
-		dest: '<%= siteInfo.assets_path %>/<%= siteInfo.js_dir %>/customizer.tmp.js',
+		dest: '<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/customizer.tmp.js',
 		nonull: true
 	}
 };

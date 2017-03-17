@@ -49,6 +49,24 @@ class Assets_Controller {
 	private $plugin_prefix;
 
 	/**
+	 * Debug mode status
+	 *
+	 * @var 	bool
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $debug_mode;
+
+	/**
+	 * Asset Suffix
+	 *
+	 * @var 	string
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $asset_suffix;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since	0.1.0
@@ -58,6 +76,11 @@ class Assets_Controller {
 		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
 		$this->plugin_textdomain = DTG_PLUGIN_NAME_TEXT_DOMAIN;
 		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+
+		// Determine whether we're in debug mode, and what the
+		// asset suffix should be.
+		$this->debug_mode   = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? true : false;
+		$this->asset_suffix = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? '' : '.min';
 	}
 
 	/**
@@ -83,27 +106,37 @@ class Assets_Controller {
 	 */
 	public function public_enqueue_scripts() {
 
-		$public_css_url  = plugins_url( 'css/public.css', $this->plugin_root );
-		$public_css_path = dirname( $this->plugin_root ) . '/css/public.css';
+		$do_public_enqueue     = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_enqueue', true );
+		$do_public_css_enqueue = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_css_enqueue', true );
+		$do_public_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_public_js_enqueue', true );
 
-		wp_enqueue_style(
-			$this->plugin_textdomain . '-public-css',
-			$public_css_url,
-			array(),
-			filemtime( $public_css_path ),
-			true
-		);
+		// Public CSS.
+		if ( $do_public_enqueue && $do_public_css_enqueue ) {
+			$public_css_url  = plugins_url( 'css/public' . $this->asset_suffix . '.css', $this->plugin_root );
+			$public_css_path = dirname( $this->plugin_root ) . '/css/public' . $this->asset_suffix . '.css';
 
-		$public_js_url   = plugins_url( 'js/public.js', $this->plugin_root );
-		$public_js_path  = dirname( $this->plugin_root ) . '/js/public.js';
+			wp_enqueue_style(
+				$this->plugin_textdomain . '-public-css',
+				$public_css_url,
+				array(),
+				filemtime( $public_css_path ),
+				true
+			);
+		}
 
-		wp_enqueue_script(
-			$this->plugin_textdomain . '-public-js',
-			$public_js_url,
-			array( 'jquery' ),
-			filemtime( $public_js_path ),
-			true
-		);
+		// Public JS.
+		if ( $do_public_enqueue && $do_public_js_enqueue ) {
+			$public_js_url   = plugins_url( 'js/public' . $this->asset_suffix . '.js', $this->plugin_root );
+			$public_js_path  = dirname( $this->plugin_root ) . '/js/public' . $this->asset_suffix . '.js';
+
+			wp_enqueue_script(
+				$this->plugin_textdomain . '-public-js',
+				$public_js_url,
+				array( 'jquery' ),
+				filemtime( $public_js_path ),
+				true
+			);
+		}
 	}
 
 	/**
@@ -113,27 +146,35 @@ class Assets_Controller {
 	 */
 	public function admin_enqueue_scripts() {
 
-		$admin_css_url  = plugins_url( 'css/admin.css', $this->plugin_root );
-		$admin_css_path = dirname( $this->plugin_root ) . '/css/admin.css';
+		$do_admin_enqueue     = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_enqueue', true );
+		$do_admin_css_enqueue = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_css_enqueue', true );
+		$do_admin_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_admin_js_enqueue', true );
 
-		wp_enqueue_style(
-			$this->plugin_textdomain . '-admin-css',
-			$admin_css_url,
-			array(),
-			filemtime( $admin_css_path ),
-			true
-		);
+		if ( $do_admin_enqueue && $do_admin_css_enqueue ) {
+			$admin_css_url  = plugins_url( 'css/admin' . $this->asset_suffix . '.css', $this->plugin_root );
+			$admin_css_path = dirname( $this->plugin_root ) . '/css/admin' . $this->asset_suffix . '.css';
 
-		$admin_js_url   = plugins_url( 'js/admin.js', $this->plugin_root );
-		$admin_js_path  = dirname( $this->plugin_root ) . '/js/admin.js';
+			wp_enqueue_style(
+				$this->plugin_textdomain . '-admin-css',
+				$admin_css_url,
+				array(),
+				filemtime( $admin_css_path ),
+				true
+			);
+		}
 
-		wp_enqueue_script(
-			$this->plugin_textdomain . '-admin-js',
-			$admin_js_url,
-			array( 'jquery' ),
-			filemtime( $admin_js_path ),
-			true
-		);
+		if ( $do_admin_enqueue && $do_admin_js_enqueue ) {
+			$admin_js_url   = plugins_url( 'js/admin' . $this->asset_suffix . '.js', $this->plugin_root );
+			$admin_js_path  = dirname( $this->plugin_root ) . '/js/admin' . $this->asset_suffix . '.js';
+
+			wp_enqueue_script(
+				$this->plugin_textdomain . '-admin-js',
+				$admin_js_url,
+				array( 'jquery' ),
+				filemtime( $admin_js_path ),
+				true
+			);
+		}
 	}
 
 	/**
@@ -142,9 +183,13 @@ class Assets_Controller {
 	 * @since	0.1.0
 	 */
 	function customizer_preview_js() {
-		$customizer_js_url  = plugins_url( 'js/customizer.min.js', $this->plugin_root );
-		$customizer_js_path = dirname( $this->plugin_root ) . '/js/customizer.min.js';
+		$do_customizer_js_enqueue  = apply_filters( DTG_PLUGIN_NAME_PREFIX . 'do_customizer_js_enqueue', true );
 
-		wp_enqueue_script( $this->plugin_textdomain . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
+		if ( $do_customizer_js_enqueue ) {
+			$customizer_js_url  = plugins_url( 'js/customizer' . $this->asset_suffix . '.js', $this->plugin_root );
+			$customizer_js_path = dirname( $this->plugin_root ) . '/js/customizer' . $this->asset_suffix . '.js';
+
+			wp_enqueue_script( $this->plugin_textdomain . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
+		}
 	}
 }

@@ -68,10 +68,6 @@ class Activator {
 	public function run() {
 		// Register the activation callback.
 		register_activation_hook( $this->plugin_root, array( $this, 'activate' ) );
-
-		// Hook in specific functionality such as adding notices etc.
-		add_action( 'admin_init', array( $this, 'generate_activation_notices' ), 10 );
-		add_action( 'admin_notices', array( $this, 'display_activation_notices' ), 10 );
 	}
 
 	/**
@@ -82,57 +78,5 @@ class Activator {
 	public function activate() {
 		// Set a transient to confirm activation.
 		set_transient( $this->plugin_prefix . '_activated', true, 10 );
-	}
-
-	/**
-	 * Create admin notices ready for display.
-	 *
-	 * @since	0.1.0
-	 */
-	public function generate_activation_notices() {
-
-		// Check for the activation transient.
-		if ( ! empty( get_transient( $this->plugin_prefix . '_activated' ) ) ) {
-
-			$activation_notices = array();
-
-			// Add a activation notice.
-			$activation_text      = __( sprintf( '%s has been successfully activated.', $this->plugin_name ), $this->plugin_textdomain );
-			$activation_notice    = apply_filters( $this->plugin_prefix . '_activation_notice', $activation_text );
-			$activation_notices[] = $activation_notice;
-
-			// Add the notices to the transient.
-			set_transient( $this->plugin_prefix . '_activation_notices', $activation_notices, 10 );
-		}
-	}
-
-	/**
-	 * Display admin notices on plugin activation.
-	 *
-	 * @since	0.1.0
-	 */
-	public function display_activation_notices() {
-
-		// Check for the activation transient.
-		if ( ! empty( get_transient( $this->plugin_prefix . '_activated' ) ) ) {
-
-			// Get any notices from the transient.
-			$activation_notices = get_transient( $this->plugin_prefix . '_activation_notices' );
-
-			if ( ! empty( $activation_notices ) ) {
-
-				// Loop through the array and generate the notices.
-				foreach ( $activation_notices as $notice ) {
-					echo '<div class="updated notice is-dismissible"><p>' . esc_html( $notice ) . '</p></div>';
-				}
-			}
-
-			// Delete the notices transients.
-			delete_transient( $this->plugin_prefix . '_activated' );
-			delete_transient( $this->plugin_prefix . '_activation_notices' );
-
-			// Delete the deactivation transient if it exists.
-			delete_transient( $this->plugin_prefix . '_deactivated' );
-		}
 	}
 }

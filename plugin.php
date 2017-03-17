@@ -34,6 +34,7 @@ require_once 'php/class-helpers.php';
 require_once 'php/class-activator.php';
 require_once 'php/class-deactivator.php';
 require_once 'php/class-uninstaller.php';
+require_once 'php/class-notices.php';
 require_once 'php/class-assets-controller.php';
 require_once 'php/class-customizer.php';
 require_once 'php/class-main-controller.php';
@@ -44,6 +45,7 @@ use dtg\plugin_name\Helpers;
 use dtg\plugin_name\Activator;
 use dtg\plugin_name\Deactivator;
 use dtg\plugin_name\Uninstaller;
+use dtg\plugin_name\Notices;
 use dtg\plugin_name\Assets_Controller;
 use dtg\plugin_name\Customizer;
 use dtg\plugin_name\Main_Controller;
@@ -54,6 +56,7 @@ $settings                 = new Settings();
 $activator    			  = new Activator();
 $deactivator  			  = new Deactivator();
 $uninstaller  			  = new Uninstaller();
+$notices	  			  = new Notices();
 $assets_controller  	  = new Assets_Controller();
 $customizer               = new Customizer();
 $main_controller          = new Main_Controller(
@@ -61,6 +64,7 @@ $main_controller          = new Main_Controller(
 	$activator,
 	$deactivator,
 	$uninstaller,
+	$notices,
 	$assets_controller,
 	$customizer
 );

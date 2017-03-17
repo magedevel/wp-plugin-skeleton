@@ -117,6 +117,7 @@ class Main_Controller {
 		Activator $activator,
 		Deactivator $deactivator,
 		Uninstaller $uninstaller,
+		Notices $notices,
 		Assets_Controller $assets_controller,
 		Customizer $customizer
 		) {
@@ -125,6 +126,7 @@ class Main_Controller {
 		$this->activator			= $activator;
 		$this->deactivator			= $deactivator;
 		$this->uninstaller			= $uninstaller;
+		$this->notices				= $notices;
 		$this->assets_controller	= $assets_controller;
 		$this->customizer			= $customizer;
 		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
@@ -149,6 +151,7 @@ class Main_Controller {
 		$this->activator->run();
 		$this->deactivator->run();
 		$this->uninstaller->run();
+		$this->notices->run();
 		$this->assets_controller->run();
 		$this->customizer->run();
 	}

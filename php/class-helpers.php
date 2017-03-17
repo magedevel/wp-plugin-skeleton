@@ -11,18 +11,13 @@ namespace dtg\plugin_name;
  * @package dtg\plugin_name
  */
 
+// Traits.
+require_once 'helpers/trait-render-view.php';
+
 /**
- * Helpers
+ * Helper class containing useful static methods
+ * that are contained within traits.
  */
 class Helpers {
-
-	/**
-	 * Constructor
-	 *
-	 * @since	0.1.0
-	 */
-	function __construct() {
-
-	}
-
+	use Helper_Render_View;
 }

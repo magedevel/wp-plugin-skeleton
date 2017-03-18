@@ -1,4 +1,12 @@
 <?php
+/**
+ * Settings Class.
+ *
+ * @since	0.1.0
+ *
+ * @package dtg\plugin_name
+ */
+
 namespace dtg\plugin_name;
 
 /**

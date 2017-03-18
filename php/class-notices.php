@@ -1,4 +1,12 @@
 <?php
+/**
+ * Notices Class.
+ *
+ * @since	0.1.0
+ *
+ * @package dtg\plugin_name
+ */
+
 namespace dtg\plugin_name;
 
 /**
@@ -9,10 +17,6 @@ namespace dtg\plugin_name;
  * @since	0.1.0
  *
  * @package dtg\plugin_name
- */
-
-/**
- * Notices
  */
 class Notices {
 
@@ -81,7 +85,7 @@ class Notices {
 	 */
 	public function display_activation_notices() {
 
-		// Check for the activation transient.
+		// Does the activation transient exist?
 		if ( ! empty( get_transient( $this->plugin_prefix . '_activated' ) ) ) {
 
 			$activation_notices = array();
@@ -91,6 +95,7 @@ class Notices {
 			$activation_notice    = apply_filters( $this->plugin_prefix . '_activation_notice', $activation_text );
 			$activation_notices[] = $activation_notice;
 
+			// Have we got any notices to display?
 			if ( ! empty( $activation_notices ) ) {
 
 				// Loop through the array and generate the notices.
@@ -104,5 +109,4 @@ class Notices {
 			delete_transient( $this->plugin_prefix . '_deactivated' );
 		}
 	}
-
 }

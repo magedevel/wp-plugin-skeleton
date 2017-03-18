@@ -3,12 +3,16 @@
  * Plugin Name
  *
  * @link              https://github.com/davetgreen/plugin-name
+ *
+ * @since	0.1.0
+ *
  * @package           dtg\plugin-name
  *
  * Plugin Name:       Plugin Name
  * Plugin URI:        https://github.com/davetgreen/plugin-name
  * Description:       A brief description of the plugin.
  * Version:           0.1.0
+ * Contributors:	  davetgreen, mkdo
  * Author:            Dave Green <hello@davetgreen.me>
  * Author URI:        http://www.davetgreen.me
  * License:           GPL-2.0+
@@ -51,8 +55,8 @@ use dtg\plugin_name\Customizer;
 use dtg\plugin_name\Main_Controller;
 
 // Instances.
-$helpers				  = new Helpers();
 $settings                 = new Settings();
+$helpers				  = new Helpers();
 $activator    			  = new Activator();
 $deactivator  			  = new Deactivator();
 $uninstaller  			  = new Uninstaller();

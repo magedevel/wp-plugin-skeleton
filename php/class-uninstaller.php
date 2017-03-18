@@ -1,4 +1,14 @@
 <?php
+/**
+ * Uninstaller Class.
+ *
+ * @since	0.1.0
+ *
+ * @package dtg\plugin_name
+ *
+ * @todo - Needs work to provide proper validation ahead of an uninstall.
+ */
+
 namespace dtg\plugin_name;
 
 /**
@@ -76,10 +86,8 @@ class Uninstaller {
 	 */
 	public function run() {
 		// Exit if WordPress hasn't requested the uninstall.
-		// if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-		// 	die;
-		// }
-
-		// Otherwise, continue.
+		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+			exit();
+		}
 	}
 }

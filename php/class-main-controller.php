@@ -1,4 +1,12 @@
 <?php
+/**
+ * Main Controller Class.
+ *
+ * @since	0.1.0
+ *
+ * @package dtg\plugin_name
+ */
+
 namespace dtg\plugin_name;
 
 /**
@@ -123,6 +131,11 @@ class Main_Controller {
 		Customizer $customizer
 		) {
 
+		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
+		$this->plugin_name		 	= DTG_PLUGIN_NAME_NAME;
+		$this->plugin_textdomain 	= DTG_PLUGIN_NAME_TEXT_DOMAIN;
+		$this->plugin_prefix     	= DTG_PLUGIN_NAME_PREFIX;
+
 		$this->settings				= $settings;
 		$this->activator			= $activator;
 		$this->deactivator			= $deactivator;
@@ -130,10 +143,6 @@ class Main_Controller {
 		$this->notices				= $notices;
 		$this->assets_controller	= $assets_controller;
 		$this->customizer			= $customizer;
-		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 	= DTG_PLUGIN_NAME_NAME;
-		$this->plugin_textdomain 	= DTG_PLUGIN_NAME_TEXT_DOMAIN;
-		$this->plugin_prefix     	= DTG_PLUGIN_NAME_PREFIX;
 	}
 
 	/**

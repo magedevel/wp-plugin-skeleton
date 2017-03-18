@@ -1,10 +1,18 @@
 <?php
+/**
+ * Assets Controller Class.
+ *
+ * @since	0.1.0
+ *
+ * @package dtg\plugin_name
+ */
+
 namespace dtg\plugin_name;
 
 /**
  * Class Assets_Controller
  *
- * Sets up the public and admin area JS and CSS needed for this plugin.
+ * Enqueues JS and CSS dependencies.
  *
  * @since	0.1.0
  *

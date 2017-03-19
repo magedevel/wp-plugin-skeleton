@@ -23,31 +23,31 @@ module.exports = function(grunt) {
 			// -------------------------------------
 			pluginInfo: {
 				// -------------------------------------
-				// The 'fancy' name for your project
-				// e.g. 'My First Website'.
+				// The 'fancy' name for your plugin
+				// e.g. 'My First Plugin'.
 				// -------------------------------------
 				fancy_name: 'Plugin Name',
 
 				// -------------------------------------
 				// Documentation path relative to the
-				// project root - NO trailing slash.
+				// plugin root - NO trailing slash.
 				// -------------------------------------
 				docs_path: 'tools/docs',
 
 				// -------------------------------------
-				// Reports path relative to the project
+				// Reports path relative to the plugin
 				// root - NO trailing slash.
 				// -------------------------------------
 				reports_path: 'tools/reports',
 
 				// -------------------------------------
-				// Reports path relative to the project
+				// Reports path relative to the plugin
 				// root - NO trailing slash.
 				// -------------------------------------
 				tests_path: 'tools/tests',
 
 				// -------------------------------------
-				// Assets path relative to the project
+				// Assets path relative to the plugin
 				// root - NO trailing slash.
 				// -------------------------------------
 				assets_path_dev: 'assets/dev',
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 				js_dir: 'js',
 
 				// -------------------------------------
-				// Sass assets directory.
+				// SCSS assets directory.
 				// -------------------------------------
 				scss_dir: 'scss',
 
@@ -86,6 +86,7 @@ module.exports = function(grunt) {
 			// for PUBLIC enqueues.
 			// -------------------------------------
 			concatPublic: [
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/_modernizr_custom.js',
 				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/public.js'
 			],
 
@@ -120,7 +121,7 @@ module.exports = function(grunt) {
 			// path to the source directory.
 			//
 			// Finally, remember the `dest` path is
-			// relative to the project root, not the
+			// relative to the plugin root, not the
 			// `cwd` if specified.
 			// -------------------------------------
 			syncAssets: [

@@ -10,7 +10,7 @@ module.exports = {
 	// Process plugin code.
 	// -------------------------------------
 	plugin: {
-	  files: [ '/php/**/*.php', '/views/**/*.php' ],
+	  files: [ 'plugin.php', '/php/**/*.php', '/views/**/*.php' ],
 	  tasks: [
 		'phplint',
 		'phpdoc:theme',

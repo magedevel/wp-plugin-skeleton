@@ -5,6 +5,7 @@ module.exports = {
 	// -------------------------------------
 	plugin: {
 		src: [
+			'plugin.php',
 			'php/',
 			'views/',
 		],

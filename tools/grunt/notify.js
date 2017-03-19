@@ -9,20 +9,12 @@ module.exports = {
 			message: '<%= pluginInfo.fancy_name %> is ready to rock!'
 		}
 	},
-	// Notify once plugins are linted.
-	// -------------------------------------
-	code_plugins: {
-		options: {
-			title: 'PHP',
-			message: '<%= pluginInfo.fancy_name %> plugin PHP is error free!'
-		}
-	},
-	// Notify once theme is linted.
+	// Notify once plugin is linted.
 	// -------------------------------------
 	plugin: {
 		options: {
 			title: 'PHP',
-			message: '<%= pluginInfo.fancy_name %> theme PHP is error free!'
+			message: '<%= pluginInfo.fancy_name %> PHP is error free!'
 		}
 	},
 	// Notify once scripts are concatenated

@@ -1,6 +1,6 @@
 // PHPlint Task - https://github.com/jgable/grunt-phplint
 // ----------------------------------------------------------------------------
 module.exports = {
-	php: [ 'php/**/*.php' ],
-	views: [ 'views/**/*.php' ],
+	// Lint the plugin PHP.
+	plugin: [ 'php/**/*.php', 'views/**/*.php', 'plugin.php' ],
 };

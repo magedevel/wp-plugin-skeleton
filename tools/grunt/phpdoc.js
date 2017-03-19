@@ -6,8 +6,8 @@ module.exports = {
 	plugin: {
 		src: [
 			'plugin.php',
-			'php/',
-			'views/',
+			'php/**/*',
+			'views/**/*',
 		],
 		dest: '<%= pluginInfo.docs_path %>/php'
 	}

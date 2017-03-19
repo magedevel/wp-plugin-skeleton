@@ -91,15 +91,6 @@ class Main_Controller {
 	private $plugin_name;
 
 	/**
-	 * Plugin text-domain.
-	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
-	 */
-	private $plugin_textdomain;
-
-	/**
 	 * Plugin prefix.
 	 *
 	 * @var 	string
@@ -133,7 +124,6 @@ class Main_Controller {
 
 		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
 		$this->plugin_name		 	= DTG_PLUGIN_NAME_NAME;
-		$this->plugin_textdomain 	= DTG_PLUGIN_NAME_TEXT_DOMAIN;
 		$this->plugin_prefix     	= DTG_PLUGIN_NAME_PREFIX;
 
 		$this->settings				= $settings;
@@ -152,7 +142,7 @@ class Main_Controller {
 	 */
 	public function run() {
 		load_plugin_textdomain(
-			$this->plugin_textdomain,
+			'plugin-name',
 			false,
 			$this->plugin_root . '/../languages'
 		);

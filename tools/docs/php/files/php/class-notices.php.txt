@@ -39,15 +39,6 @@ class Notices {
 	private $plugin_name;
 
 	/**
-	 * Plugin text-domain.
-	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
-	 */
-	private $plugin_textdomain;
-
-	/**
 	 * Plugin prefix.
 	 *
 	 * @var 	string
@@ -64,7 +55,6 @@ class Notices {
 	function __construct() {
 		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
 		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_textdomain = DTG_PLUGIN_NAME_TEXT_DOMAIN;
 		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
 	}
 
@@ -91,7 +81,7 @@ class Notices {
 			$activation_notices = array();
 
 			// Add a successful activation notice.
-			$activation_text      = __( sprintf( '%s has been successfully activated.', $this->plugin_name ), $this->plugin_textdomain );
+			$activation_text      = __( sprintf( '%s has been successfully activated.', $this->plugin_name ), 'plugin-name' );
 			$activation_notice    = apply_filters( $this->plugin_prefix . '_activation_notice', $activation_text );
 			$activation_notices[] = $activation_notice;
 

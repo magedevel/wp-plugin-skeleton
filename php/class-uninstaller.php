@@ -86,8 +86,8 @@ class Uninstaller {
 	 */
 	public function run() {
 		// Exit if WordPress hasn't requested the uninstall.
-		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-			exit();
+		if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+			// Do something.
 		}
 	}
 }

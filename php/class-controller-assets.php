@@ -10,7 +10,7 @@
 namespace dtg\plugin_name;
 
 /**
- * Class Assets_Controller
+ * Class Controller_Assets
  *
  * Enqueues JS and CSS dependencies.
  *
@@ -18,7 +18,7 @@ namespace dtg\plugin_name;
  *
  * @package dtg\plugin_name
  */
-class Assets_Controller {
+class Controller_Assets {
 
 	/**
 	 * Path to the root plugin file.

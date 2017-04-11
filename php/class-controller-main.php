@@ -10,13 +10,22 @@
 namespace dtg\plugin_name;
 
 /**
- * Class Main_Controller
+ * Class Controller_Main
  *
  * @since	0.1.0
  *
  * @package dtg\plugin_name
  */
-class Main_Controller {
+class Controller_Main {
+
+	/*
+	 * Define the settings page.
+	 *
+	 * @var 	object
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $settings;
 
 	/**
 	 * Take action on plugin activation.
@@ -46,22 +55,13 @@ class Main_Controller {
 	private $uninstaller;
 
 	/**
-	 * Enqueue the public and admin assets.
+	 * Add notices in certain contexts.
 	 *
 	 * @var 	object
 	 * @access	private
 	 * @since	0.1.0
 	 */
-	private $assets_controller;
-
-	/**
-	 * Define the settings page.
-	 *
-	 * @var 	object
-	 * @access	private
-	 * @since	0.1.0
-	 */
-	private $settings;
+	private $notices;
 
 	/**
 	 * Define the Customizer options.
@@ -71,6 +71,15 @@ class Main_Controller {
 	 * @since	0.1.0
 	 */
 	private $customizer;
+
+	/**
+	 * Enqueue the public and admin assets.
+	 *
+	 * @var 	object
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $controller_assets;
 
 	/**
 	 * Path to the root plugin file.
@@ -116,8 +125,8 @@ class Main_Controller {
 	 * @param 	Deactivator		  $deactivator		 Take action on plugin deactivation.
 	 * @param 	Uninstaller		  $uninstaller		 Take action on plugin uninstall.
 	 * @param 	Notices			  $notices           Display notices in various conditions.
-	 * @param 	Assets_Controller $assets_controller Enqueue the public and admin assets.
 	 * @param 	Customizer		  $customizer        Define the customizer options.
+	 * @param 	Controller_Assets $controller_assets Enqueue the public and admin assets.
 	 *
 	 * @since 0.1.0
 	 */
@@ -127,8 +136,8 @@ class Main_Controller {
 		Deactivator $deactivator,
 		Uninstaller $uninstaller,
 		Notices $notices,
-		Assets_Controller $assets_controller,
-		Customizer $customizer
+		Customizer $customizer,
+		Controller_Assets $controller_assets
 		) {
 
 		$this->plugin_root 		 	= DTG_PLUGIN_NAME_ROOT;
@@ -141,8 +150,8 @@ class Main_Controller {
 		$this->deactivator			= $deactivator;
 		$this->uninstaller			= $uninstaller;
 		$this->notices				= $notices;
-		$this->assets_controller	= $assets_controller;
 		$this->customizer			= $customizer;
+		$this->controller_assets	= $controller_assets;
 	}
 
 	/**
@@ -162,7 +171,7 @@ class Main_Controller {
 		$this->deactivator->run();
 		$this->uninstaller->run();
 		$this->notices->run();
-		$this->assets_controller->run();
 		$this->customizer->run();
+		$this->controller_assets->run();
 	}
 }

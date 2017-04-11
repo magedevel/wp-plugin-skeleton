@@ -39,9 +39,9 @@ require_once 'php/class-activator.php';
 require_once 'php/class-deactivator.php';
 require_once 'php/class-uninstaller.php';
 require_once 'php/class-notices.php';
-require_once 'php/class-assets-controller.php';
 require_once 'php/class-customizer.php';
-require_once 'php/class-main-controller.php';
+require_once 'php/class-controller-assets.php';
+require_once 'php/class-controller-main.php';
 
 // Namespaces.
 use dtg\plugin_name\Settings;
@@ -50,28 +50,27 @@ use dtg\plugin_name\Activator;
 use dtg\plugin_name\Deactivator;
 use dtg\plugin_name\Uninstaller;
 use dtg\plugin_name\Notices;
-use dtg\plugin_name\Assets_Controller;
 use dtg\plugin_name\Customizer;
-use dtg\plugin_name\Main_Controller;
+use dtg\plugin_name\Controller_Assets;
+use dtg\plugin_name\Controller_Main;
 
 // Instances.
 $settings                 = new Settings();
-$helpers				  = new Helpers();
 $activator    			  = new Activator();
 $deactivator  			  = new Deactivator();
 $uninstaller  			  = new Uninstaller();
 $notices	  			  = new Notices();
-$assets_controller  	  = new Assets_Controller();
 $customizer               = new Customizer();
-$main_controller          = new Main_Controller(
+$controller_assets  	  = new Controller_Assets();
+$controller_main          = new Controller_Main(
 	$settings,
 	$activator,
 	$deactivator,
 	$uninstaller,
 	$notices,
-	$assets_controller,
-	$customizer
+	$customizer,
+	$controller_assets
 );
 
 // Go.
-$main_controller->run();
+$controller_main->run();

@@ -39,13 +39,13 @@ class Controller_Assets {
 	private $plugin_name;
 
 	/**
-	 * Plugin text-domain.
+	 * Plugin slug.
 	 *
 	 * @var 	string
 	 * @access	private
 	 * @since	0.1.0
 	 */
-	private $plugin_textdomain;
+	private $plugin_slug;
 
 	/**
 	 * Plugin prefix.
@@ -55,6 +55,15 @@ class Controller_Assets {
 	 * @since	0.1.0
 	 */
 	private $plugin_prefix;
+
+	/**
+	 * Plugin text-domain.
+	 *
+	 * @var 	string
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $plugin_textdomain;
 
 	/**
 	 * Debug mode status
@@ -82,8 +91,9 @@ class Controller_Assets {
 	public function __construct() {
 		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
 		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_textdomain = DTG_PLUGIN_NAME_TEXT_DOMAIN;
+		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
 		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_textdomain = 'plugin-name';
 
 		// Determine whether we're in debug mode, and what the
 		// asset suffix should be.
@@ -124,7 +134,7 @@ class Controller_Assets {
 			$public_css_path = dirname( $this->plugin_root ) . '/assets/prod/public' . $this->asset_suffix . '.css';
 
 			wp_enqueue_style(
-				$this->plugin_textdomain . '-public-css',
+				$this->plugin_slug . '-public-css',
 				$public_css_url,
 				array(),
 				filemtime( $public_css_path ),
@@ -138,7 +148,7 @@ class Controller_Assets {
 			$public_js_path  = dirname( $this->plugin_root ) . '/assets/prod/js/public' . $this->asset_suffix . '.js';
 
 			wp_enqueue_script(
-				$this->plugin_textdomain . '-public-js',
+				$this->plugin_slug . '-public-js',
 				$public_js_url,
 				array( 'jquery' ),
 				filemtime( $public_js_path ),
@@ -163,7 +173,7 @@ class Controller_Assets {
 			$admin_css_path = dirname( $this->plugin_root ) . '/assets/prod/css/admin' . $this->asset_suffix . '.css';
 
 			wp_enqueue_style(
-				$this->plugin_textdomain . '-admin-css',
+				$this->plugin_slug . '-admin-css',
 				$admin_css_url,
 				array(),
 				filemtime( $admin_css_path ),
@@ -176,7 +186,7 @@ class Controller_Assets {
 			$admin_js_path  = dirname( $this->plugin_root ) . '/assets/prod/js/admin' . $this->asset_suffix . '.js';
 
 			wp_enqueue_script(
-				$this->plugin_textdomain . '-admin-js',
+				$this->plugin_slug . '-admin-js',
 				$admin_js_url,
 				array( 'jquery' ),
 				filemtime( $admin_js_path ),
@@ -197,7 +207,7 @@ class Controller_Assets {
 			$customizer_js_url  = plugins_url( '/assets/prod/js/customizer' . $this->asset_suffix . '.js', $this->plugin_root );
 			$customizer_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/customizer' . $this->asset_suffix . '.js';
 
-			wp_enqueue_script( $this->plugin_textdomain . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
+			wp_enqueue_script( $this->plugin_slug . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
 		}
 	}
 }

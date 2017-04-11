@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 // Constants.
 define( 'DTG_PLUGIN_NAME_ROOT', __FILE__ );
 define( 'DTG_PLUGIN_NAME_NAME', 'Plugin Name' );
-define( 'DTG_PLUGIN_NAME_TEXT_DOMAIN', 'plugin-name' );
+define( 'DTG_PLUGIN_NAME_SLUG', 'plugin-name' );
 define( 'DTG_PLUGIN_NAME_PREFIX', 'plugin_name' );
 
 // Classes.

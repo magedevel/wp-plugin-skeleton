@@ -37,13 +37,13 @@ class Settings {
 	private $plugin_name;
 
 	/**
-	 * Plugin text-domain.
+	 * Plugin slug.
 	 *
 	 * @var 	string
 	 * @access	private
 	 * @since	0.1.0
 	 */
-	private $plugin_textdomain;
+	private $plugin_slug;
 
 	/**
 	 * Plugin prefix.
@@ -55,6 +55,15 @@ class Settings {
 	private $plugin_prefix;
 
 	/**
+	 * Plugin text-domain.
+	 *
+	 * @var 	string
+	 * @access	private
+	 * @since	0.1.0
+	 */
+	private $plugin_textdomain;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since	0.1.0
@@ -62,8 +71,9 @@ class Settings {
 	public function __construct() {
 		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
 		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_textdomain = DTG_PLUGIN_NAME_TEXT_DOMAIN;
+		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
 		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_textdomain = 'plugin-name';
 	}
 
 	/**

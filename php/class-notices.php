@@ -86,6 +86,9 @@ class Notices {
 	public function run() {
 		// Hook in specific functionality such as adding notices etc.
 		add_action( 'admin_notices', array( $this, 'display_activation_notices' ), 10 );
+
+		// Display warning if using unsupported PHP version.
+		add_action( 'admin_notices', array( $this, 'display_php_version_warning_notice' ), 15 );
 	}
 
 	/**
@@ -118,5 +121,23 @@ class Notices {
 			delete_transient( $this->plugin_prefix . '_activated' );
 			delete_transient( $this->plugin_prefix . '_deactivated' );
 		}
+	}
+
+	/**
+	 * Display warning if running an unsupported version of PHP
+	 *
+	 * @since	0.1.0
+	 */
+	public function display_php_version_warning_notice() {
+
+		$min_php_version = '5.6';
+
+		if ( version_compare( phpversion(), $min_php_version, '<' ) ) {
+
+			$php_version_notice = __( sprintf( 'Your web-server is running an un-supported version of PHP. Please upgrade to version %s  or higher to avoid potential issues with %s and other Wordpress plugins.', $min_php_version, $this->plugin_name ), $this->plugin_textdomain );
+
+			echo '<div class="error notice notice-warning"><p>' . esc_html( $php_version_notice ) . '</p></div>';
+		}
+
 	}
 }

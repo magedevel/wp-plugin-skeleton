@@ -1,6 +1,6 @@
 <?php
 /**
- * Activator Class.
+ * Gutenberg Class.
  *
  * @since	0.1.0
  *
@@ -10,15 +10,15 @@
 namespace Plugin_Name;
 
 /**
- * Class Activator
+ * Class Gutenberg
  *
- * Carry out actions when the plugin is activated.
+ * Register Gutenberg blocks and other modifications.
  *
  * @since	0.1.0
  *
  * @package Plugin_Name
  */
-class Activator {
+class Gutenberg {
 
 	/**
 	 * Path to the root plugin file.
@@ -84,17 +84,6 @@ class Activator {
 	 * @since	0.1.0
 	 */
 	public function run() {
-		// Register the activation callback.
-		register_activation_hook( $this->plugin_root, array( $this, 'activate' ) );
-	}
 
-	/**
-	 * Activate the plugin.
-	 *
-	 * @since	0.1.0
-	 */
-	public function activate() {
-		// Set a transient to confirm activation.
-		set_transient( $this->plugin_prefix . '_activated', true, 10 );
 	}
 }

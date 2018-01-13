@@ -4,10 +4,10 @@
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 
-namespace dtg\plugin_name;
+namespace Plugin_Name;
 
 /**
  * Class Notices
@@ -16,7 +16,7 @@ namespace dtg\plugin_name;
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 class Notices {
 
@@ -71,10 +71,10 @@ class Notices {
 	 * @since	0.1.0
 	 */
 	function __construct() {
-		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
+		$this->plugin_name		 = PLUGIN_NAME_NAME;
+		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
 		$this->plugin_textdomain = 'plugin-name';
 	}
 
@@ -134,7 +134,7 @@ class Notices {
 
 		if ( version_compare( phpversion(), $min_php_version, '<' ) ) {
 
-			$php_version_notice = __( sprintf( 'Your web-server is running an un-supported version of PHP. Please upgrade to version %s  or higher to avoid potential issues with %s and other Wordpress plugins.', $min_php_version, $this->plugin_name ), $this->plugin_textdomain );
+			$php_version_notice = __( sprintf( 'Your web-server is running an un-supported version of PHP. Please upgrade to version %s  or higher to avoid potential issues with %s and other WordPress plugins.', $min_php_version, $this->plugin_name ), $this->plugin_textdomain );
 
 			echo '<div class="error notice notice-warning"><p>' . esc_html( $php_version_notice ) . '</p></div>';
 		}

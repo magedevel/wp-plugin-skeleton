@@ -4,17 +4,17 @@
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 
-namespace dtg\plugin_name;
+namespace Plugin_Name;
 
 /**
  * Class Settings
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 class Settings {
 
@@ -69,10 +69,10 @@ class Settings {
 	 * @since	0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
+		$this->plugin_name		 = PLUGIN_NAME_NAME;
+		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
 		$this->plugin_textdomain = 'plugin-name';
 	}
 
@@ -82,9 +82,12 @@ class Settings {
 	 * @since	0.1.0
 	 */
 	public function run() {
-		add_action( 'admin_init', array( $this, 'init_settings_page' ) );
-		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
-		add_action( 'plugin_action_links_' . plugin_basename( $this->plugin_root ) , array( $this, 'add_setings_link' ) );
+		// @codingStandardsIgnoreStart
+		// Uncomment these hooks to create a plugin settings page.
+		// add_action( 'admin_init', array( $this, 'init_settings_page' ) );
+		// add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+		// add_action( 'plugin_action_links_' . plugin_basename( $this->plugin_root ) , array( $this, 'add_setings_link' ) );
+		// @codingStandardsIgnoreEnd
 	}
 
 	/**

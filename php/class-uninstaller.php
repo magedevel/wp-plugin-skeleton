@@ -4,12 +4,12 @@
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  *
  * @todo - Needs work to provide proper validation ahead of an uninstall.
  */
 
-namespace dtg\plugin_name;
+namespace Plugin_Name;
 
 /**
  * Class Uninstaller
@@ -27,7 +27,7 @@ namespace dtg\plugin_name;
  *
  * @since		0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 class Uninstaller {
 
@@ -82,10 +82,10 @@ class Uninstaller {
 	 * @since		0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
+		$this->plugin_name		 = PLUGIN_NAME_NAME;
+		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
 		$this->plugin_textdomain = 'plugin-name';
 	}
 
@@ -95,9 +95,9 @@ class Uninstaller {
 	 * @since		0.1.0
 	 */
 	public function run() {
-		// Exit if WordPress hasn't requested the uninstall.
+		// Only proceed if WordPress is in un-install mode.
 		if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-			// Do something.
+			// Do something e.g clean up database.
 		}
 	}
 }

@@ -6,7 +6,7 @@
  *
  * @since 0.1.0
  *
- * @package plugin-name
+ * @package Plugin_Name
  *
  * Plugin Name:  Plugin Name
  * Plugin URI:   https://github.com/davetgreen/plugin-name
@@ -15,8 +15,8 @@
  * Contributors: davetgreen, mkdo
  * Author:       Dave Green <hello@davetgreen.me>
  * Author URI:   https://www.davetgreen.me
- * License:      GPL-2.0+
- * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:      GPL-3.0+
+ * License URI:  http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:  plugin-name
  * Domain Path:  /languages
  */
@@ -35,24 +35,6 @@ define( 'PLUGIN_NAME_ROOT', __FILE__ );
 define( 'PLUGIN_NAME_NAME', 'Plugin Name' );
 define( 'PLUGIN_NAME_SLUG', 'plugin-name' );
 define( 'PLUGIN_NAME_PREFIX', 'plugin_name' );
-define( 'PLUGIN_NAME_MIN_PHP_VERSION', '5.6' );
-
-/**
- * PHP Version Check.
- *
- * Exit and display error if minium version of PHP is not met.
- *
- * Do this now before we start calling classes and namespaces, as the user may
- * be using a version of PHP that does not support those features.
- */
-if ( version_compare( phpversion(), PLUGIN_NAME_MIN_PHP_VERSION, '<' ) ) {
-	$php_version_notice = sprintf(
-		/* translators: 1: PHP version 2: plugin name */
-	__( 'Your web-server is running an un-supported version of PHP. Please upgrade to version %1$s  or higher to avoid potential issues with %2$s and other WordPress plugins.', 'plugin-name' ),
-	PLUGIN_NAME_MIN_PHP_VERSION,
-	PLUGIN_NAME_NAME );
-	wp_die( esc_html( $php_version_notice ) );
-}
 
 /**
  * Classes.
@@ -104,7 +86,6 @@ load_plugin_textdomain(
 /**
  * Unleash Hell.
  */
-
 $activator->run();
 $controller_assets->run();
 $customizer->run();

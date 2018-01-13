@@ -4,10 +4,10 @@
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 
-namespace dtg\plugin_name;
+namespace Plugin_Name;
 
 /**
  * Class Controller_Assets
@@ -16,7 +16,7 @@ namespace dtg\plugin_name;
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 class Controller_Assets {
 
@@ -89,10 +89,10 @@ class Controller_Assets {
 	 * @since	0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
+		$this->plugin_name		 = PLUGIN_NAME_NAME;
+		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
 		$this->plugin_textdomain = 'plugin-name';
 
 		// Determine whether we're in debug mode, and what the

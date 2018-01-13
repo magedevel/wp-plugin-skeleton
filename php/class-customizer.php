@@ -4,19 +4,19 @@
  *
  * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 
-namespace dtg\plugin_name;
+namespace Plugin_Name;
 
 /**
  * Class Customizer
  *
  * Register Customizer settings, panels, section and controls.
  *
- * @since		0.1.0
+ * @since	0.1.0
  *
- * @package dtg\plugin_name
+ * @package Plugin_Name
  */
 class Customizer {
 
@@ -71,10 +71,10 @@ class Customizer {
 	 * @since	0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = DTG_PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = DTG_PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = DTG_PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = DTG_PLUGIN_NAME_PREFIX;
+		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
+		$this->plugin_name		 = PLUGIN_NAME_NAME;
+		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
 		$this->plugin_textdomain = 'plugin-name';
 	}
 

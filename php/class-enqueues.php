@@ -1,6 +1,6 @@
 <?php
 /**
- * Assets Controller Class.
+ * Enqueues Class.
  *
  * @since	0.1.0
  *
@@ -10,7 +10,7 @@
 namespace Plugin_Name;
 
 /**
- * Class Controller_Assets
+ * Class Enqueues
  *
  * Enqueues JS and CSS dependencies.
  *
@@ -18,7 +18,7 @@ namespace Plugin_Name;
  *
  * @package Plugin_Name
  */
-class Controller_Assets {
+class Enqueues {
 
 	/**
 	 * Path to the root plugin file.

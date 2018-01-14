@@ -40,9 +40,9 @@ define( 'PLUGIN_NAME_PREFIX', 'plugin_name' );
  * Classes.
  */
 require_once 'php/class-activator.php';
-require_once 'php/class-controller-assets.php';
 require_once 'php/class-customizer.php';
 require_once 'php/class-deactivator.php';
+require_once 'php/class-enqueues.php';
 require_once 'php/class-gutenberg.php';
 require_once 'php/class-helpers.php';
 require_once 'php/class-notices.php';
@@ -53,9 +53,9 @@ require_once 'php/class-uninstaller.php';
  * Namespaces.
  */
 use Plugin_Name\Activator;
-use Plugin_Name\Controller_Assets;
 use Plugin_Name\Customizer;
 use Plugin_Name\Deactivator;
+use Plugin_Name\Enqueues;
 use Plugin_Name\Gutenberg;
 use Plugin_Name\Helpers;
 use Plugin_Name\Notices;
@@ -65,14 +65,14 @@ use Plugin_Name\Uninstaller;
 /**
  * Instances.
  */
-$activator    	   = new Activator();
-$controller_assets = new Controller_Assets();
-$customizer        = new Customizer();
-$deactivator  	   = new Deactivator();
-$gutenberg         = new Gutenberg();
-$notices	  	   = new Notices();
-$settings          = new Settings();
-$uninstaller  	   = new Uninstaller();
+$activator    = new Activator();
+$customizer   = new Customizer();
+$deactivator  = new Deactivator();
+$enqueues     = new Enqueues();
+$gutenberg    = new Gutenberg();
+$notices	  = new Notices();
+$settings     = new Settings();
+$uninstaller  = new Uninstaller();
 
 /**
  * Textdomain.
@@ -87,10 +87,10 @@ load_plugin_textdomain(
  * Unleash Hell.
  */
 $activator->run();
-$controller_assets->run();
 $customizer->run();
 $deactivator->run();
 $gutenberg->run();
+$enqueues->run();
 $notices->run();
 $settings->run();
 $uninstaller->run();

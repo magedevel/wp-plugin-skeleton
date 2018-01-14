@@ -65,14 +65,14 @@ use Plugin_Name\Uninstaller;
 /**
  * Instances.
  */
-$activator    = new Activator();
-$customizer   = new Customizer();
-$deactivator  = new Deactivator();
-$enqueues     = new Enqueues();
-$gutenberg    = new Gutenberg();
-$notices	  = new Notices();
-$settings     = new Settings();
-$uninstaller  = new Uninstaller();
+$activator   = new Activator();
+$customizer  = new Customizer();
+$deactivator = new Deactivator();
+$enqueues    = new Enqueues();
+$gutenberg   = new Gutenberg();
+$notices     = new Notices();
+$settings    = new Settings();
+$uninstaller = new Uninstaller();
 
 /**
  * Textdomain.

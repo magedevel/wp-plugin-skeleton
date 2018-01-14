@@ -2,7 +2,7 @@
 /**
  * Uninstaller Class.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  *
@@ -25,7 +25,7 @@ namespace Plugin_Name;
  * - Repeat with other user roles. Best directly by using the links/query string parameters.
  * - Repeat things for multisite. Once for a single site in the network, once sitewide.
  *
- * @since		0.1.0
+ * @since       0.1.0
  *
  * @package Plugin_Name
  */
@@ -34,70 +34,60 @@ class Uninstaller {
 	/**
 	 * Path to the root plugin file.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_root;
 
 	/**
 	 * Plugin name.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_name;
 
 	/**
 	 * Plugin slug.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_slug;
 
 	/**
 	 * Plugin prefix.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_prefix;
 
 	/**
-	 * Plugin text-domain.
-	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
-	 */
-	private $plugin_textdomain;
-
-	/**
 	 * Constructor.
 	 *
-	 * @since		0.1.0
+	 * @since       0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
-		$this->plugin_textdomain = 'plugin-name';
+		$this->plugin_root   = PLUGIN_NAME_ROOT;
+		$this->plugin_name   = PLUGIN_NAME_NAME;
+		$this->plugin_slug   = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix = PLUGIN_NAME_PREFIX;
 	}
 
 	/**
 	 * Unleash Hell.
 	 *
-	 * @since		0.1.0
+	 * Make sure you check defined( 'WP_UNINSTALL_PLUGIN' ) before
+	 * executing any code; to check if WordPress is in un-install mode.
+	 *
+	 * @since       0.1.0
 	 */
 	public function run() {
-		// Only proceed if WordPress is in un-install mode.
-		if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-			// Do something e.g clean up database.
-		}
+
 	}
 }

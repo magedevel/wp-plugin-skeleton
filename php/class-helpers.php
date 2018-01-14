@@ -2,14 +2,16 @@
 /**
  * Helpers Class.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */
 
 namespace Plugin_Name;
 
-// Traits.
+/**
+ * Traits
+ */
 require_once 'traits/trait-render-view.php';
 
 /**
@@ -17,7 +19,7 @@ require_once 'traits/trait-render-view.php';
  *
  * Helper class containing useful static methods.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */

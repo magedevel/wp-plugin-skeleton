@@ -2,7 +2,7 @@
 /**
  * Enqueues Class.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */
@@ -14,7 +14,7 @@ namespace Plugin_Name;
  *
  * Enqueues JS and CSS dependencies.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */
@@ -23,77 +23,67 @@ class Enqueues {
 	/**
 	 * Path to the root plugin file.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_root;
 
 	/**
 	 * Plugin name.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_name;
 
 	/**
 	 * Plugin slug.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_slug;
 
 	/**
 	 * Plugin prefix.
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $plugin_prefix;
 
 	/**
-	 * Plugin text-domain.
-	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
-	 */
-	private $plugin_textdomain;
-
-	/**
 	 * Debug mode status
 	 *
-	 * @var 	bool
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     bool
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $debug_mode;
 
 	/**
 	 * Asset Suffix
 	 *
-	 * @var 	string
-	 * @access	private
-	 * @since	0.1.0
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
 	 */
 	private $asset_suffix;
 
 	/**
 	 * Constructor.
 	 *
-	 * @since	0.1.0
+	 * @since   0.1.0
 	 */
 	public function __construct() {
-		$this->plugin_root 		 = PLUGIN_NAME_ROOT;
-		$this->plugin_name		 = PLUGIN_NAME_NAME;
-		$this->plugin_slug		 = PLUGIN_NAME_SLUG;
-		$this->plugin_prefix     = PLUGIN_NAME_PREFIX;
-		$this->plugin_textdomain = 'plugin-name';
+		$this->plugin_root   = PLUGIN_NAME_ROOT;
+		$this->plugin_name   = PLUGIN_NAME_NAME;
+		$this->plugin_slug   = PLUGIN_NAME_SLUG;
+		$this->plugin_prefix = PLUGIN_NAME_PREFIX;
 
 		// Determine whether we're in debug mode, and what the
 		// asset suffix should be.
@@ -104,7 +94,7 @@ class Enqueues {
 	/**
 	 * Unleash Hell.
 	 *
-	 * @since	0.1.0
+	 * @since   0.1.0
 	 */
 	public function run() {
 		// Enqueue Front-end JS.
@@ -120,7 +110,7 @@ class Enqueues {
 	/**
 	 * Enqueue Public Scripts.
 	 *
-	 * @since	0.1.0
+	 * @since   0.1.0
 	 */
 	public function public_enqueue_scripts() {
 
@@ -143,8 +133,8 @@ class Enqueues {
 
 		// Public JS.
 		if ( $do_public_enqueue && $do_public_js_enqueue ) {
-			$public_js_url   = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js', $this->plugin_root );
-			$public_js_path  = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js';
+			$public_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js', $this->plugin_root );
+			$public_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js';
 
 			wp_enqueue_script(
 				$this->plugin_slug . '-public-js',
@@ -159,7 +149,7 @@ class Enqueues {
 	/**
 	 * Enqueue Admin Scripts.
 	 *
-	 * @since	0.1.0
+	 * @since   0.1.0
 	 */
 	public function admin_enqueue_scripts() {
 
@@ -180,8 +170,8 @@ class Enqueues {
 		}
 
 		if ( $do_admin_enqueue && $do_admin_js_enqueue ) {
-			$admin_js_url   = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js', $this->plugin_root );
-			$admin_js_path  = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js';
+			$admin_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js', $this->plugin_root );
+			$admin_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js';
 
 			wp_enqueue_script(
 				$this->plugin_slug . '-admin-js',
@@ -196,10 +186,10 @@ class Enqueues {
 	/**
 	 * Enqueue live preview JS handlers.
 	 *
-	 * @since	0.1.0
+	 * @since   0.1.0
 	 */
-	function customizer_preview_js() {
-		$do_customizer_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_customizer_js_enqueue', true );
+	public function customizer_preview_js() {
+		$do_customizer_js_enqueue = apply_filters( $this->plugin_prefix . 'do_customizer_js_enqueue', true );
 
 		if ( $do_customizer_js_enqueue ) {
 			$customizer_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-customizer' . $this->asset_suffix . '.js', $this->plugin_root );

@@ -93,7 +93,7 @@
 	<!-- Ensure that any i18n functions have a valid project-specific or Kapow textdomain -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="bottco-website,kapow,kapow-core,project-core" />
+			<property name="text_domain" type="array" value="plugin-name" />
 		</properties>
 	</rule>
 

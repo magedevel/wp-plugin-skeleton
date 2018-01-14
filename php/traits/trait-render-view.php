@@ -2,7 +2,7 @@
 /**
  * Trait Render_View
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */
@@ -12,7 +12,7 @@ namespace Plugin_Name;
 /**
  * Helper_Render_View.
  *
- * @since	0.1.0
+ * @since   0.1.0
  *
  * @package Plugin_Name
  */
@@ -28,7 +28,7 @@ trait Helper_Render_View {
 
 		// Use the `_view_template_folder` filter to check for a custom location,
 		// eg: `get_stylesheet_directory() . '/template-parts/ground-control/'`.
-		$view_template_folder              = apply_filters( PLUGIN_NAME_PREFIX . '_view_template_folder', '' );
+		$view_template_folder = apply_filters( PLUGIN_NAME_PREFIX . '_view_template_folder', '' );
 
 		// You can also use the `_view_template_folder_check_exists` filter to
 		// make sure that the file exists before loading.

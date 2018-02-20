@@ -5,7 +5,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'default', [
 		'sync',
 		"lint",
-		"spritesmith",
 		"sass",
 		"postcss",
 		"cssmin",

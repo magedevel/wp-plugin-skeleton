@@ -105,6 +105,12 @@ class Enqueues {
 
 		// Enqueue Customizer JS.
 		add_action( 'customize_preview_init', array( $this, 'customizer_preview_js' ), 10 );
+
+		// Enqueue Customizer JS.
+		add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_editor_js' ), 10 );
+
+		// Enqueue Customizer JS.
+		add_action( 'enqueue_block_assets', array( $this, 'gutenberg_front_js' ), 10 );
 	}
 
 	/**
@@ -184,18 +190,112 @@ class Enqueues {
 	}
 
 	/**
-	 * Enqueue live preview JS handlers.
+	 * Enqueue Customizer live preview JS handlers.
 	 *
 	 * @since   0.1.0
 	 */
 	public function customizer_preview_js() {
+
 		$do_customizer_js_enqueue = apply_filters( $this->plugin_prefix . 'do_customizer_js_enqueue', true );
 
 		if ( $do_customizer_js_enqueue ) {
 			$customizer_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-customizer' . $this->asset_suffix . '.js', $this->plugin_root );
 			$customizer_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-customizer' . $this->asset_suffix . '.js';
 
-			wp_enqueue_script( $this->plugin_slug . '-customizer', $customizer_js_url, array( 'customize-preview' ), filemtime( $customizer_js_path ), true );
+			wp_enqueue_script(
+				$this->plugin_slug . '-customizer',
+				$customizer_js_url,
+				array( 'customize-preview' ),
+				filemtime( $customizer_js_path ),
+				true
+			);
+		}
+	}
+
+	/**
+	 * Enqueue Gutenberg editor CSS & JS.
+	 *
+	 * @since   0.1.0
+	 */
+	public function gutenberg_editor_js() {
+
+		$do_gutenberg_editor_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_gutenberg_editor_js_enqueue', true );
+		$do_gutenberg_editor_css_enqueue = apply_filters( $this->plugin_prefix . 'do_gutenberg_editor_css_enqueue', true );
+
+		if ( $do_gutenberg_editor_js_enqueue ) {
+
+			$gutenberg_editor_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.js', $this->plugin_root );
+			$gutenberg_editor_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.js';
+
+			wp_enqueue_script(
+				$this->plugin_slug . '-gutenberg-editor-js',
+				$gutenberg_editor_js_url,
+				[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api' ],
+				filemtime( $gutenberg_editor_js_path ),
+				true
+			);
+
+			wp_localize_script(
+				$this->plugin_slug . '-gutenberg-editor-js',
+				[
+					'rest_url' => esc_url( rest_url() ),
+				]
+			);
+		}
+
+		if ( $do_gutenberg_editor_css_enqueue ) {
+
+			$gutenberg_editor_css_url  = plugins_url( '/assets/prod/css/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.css', $this->plugin_root );
+			$gutenberg_editor_css_path = dirname( $this->plugin_root ) . '/assets/prod/css/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.css';
+
+			wp_enqueue_style(
+				$this->plugin_slug . '-gutenberg-editor-css',
+				$gutenberg_editor_css_url,
+				[ 'wp-blocks' ],
+				filemtime( $gutenberg_editor_css_path )
+			);
+		}
+	}
+
+	/**
+	 * Enqueue Gutenberg front-end CSS & JS.
+	 *
+	 * @since   0.1.0
+	 */
+	public function gutenberg_front_js() {
+
+		$do_gutenberg_front_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_gutenberg_front_js_enqueue', true );
+		$do_gutenberg_front_css_enqueue = apply_filters( $this->plugin_prefix . 'do_gutenberg_front_css_enqueue', true );
+
+		// This hook enqueues on both the admin and front-end,
+		// so we need to make this conditional.
+		if ( ! is_admin() && $do_gutenberg_front_js_enqueue ) {
+
+			$gutenberg_front_js_url  = plugins_url( '/assets/prod/js/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.js', $this->plugin_root );
+			$gutenberg_front_js_path = dirname( $this->plugin_root ) . '/assets/prod/js/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.js';
+
+			wp_enqueue_script(
+				$this->plugin_slug . '-gutenberg-front-js',
+				$gutenberg_front_js_url,
+				[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api' ],
+				filemtime( $gutenberg_front_js_path ),
+				true
+			);
+		}
+
+		// This hook enqueues on both the admin and front-end,
+		// so we need to make this conditional.
+		if ( ! is_admin() && $do_gutenberg_front_css_enqueue ) {
+
+			$gutenberg_front_css_url  = plugins_url( '/assets/prod/css/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.css', $this->plugin_root );
+			$gutenberg_front_css_path = dirname( $this->plugin_root ) . '/assets/prod/css/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.css';
+
+			wp_enqueue_style(
+				$this->plugin_slug . '-gutenberg-front-css',
+				$gutenberg_front_css_url,
+				[ 'wp-blocks' ],
+				filemtime( $gutenberg_front_css_path )
+			);
 		}
 	}
 }

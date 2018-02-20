@@ -180,9 +180,9 @@ svn add --force $SVNPATH/assets/
 # We dont want all of our toys in the SVN repo, so lets remove them:
 echo "Deleting unwanted assets"
 svn delete --force --quiet $SVNPATH/trunk/assets/wporg
-svn delete --force --quiet $SVNPATH/trunk/assets/development
-svn delete --force --quiet $SVNPATH/trunk/examples
+svn delete --force --quiet $SVNPATH/trunk/assets/src
 svn delete --force --quiet $SVNPATH/trunk/tools
+svn delete --force --quiet $SVNPATH/trunk/vendor
 svn delete --force --quiet $SVNPATH/trunk/.DS_Store
 
 echo "Changing directory to SVN and committing to trunk"

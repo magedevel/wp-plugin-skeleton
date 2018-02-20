@@ -18,22 +18,28 @@ module.exports = {
 	// -------------------------------------
 	public: {
 		files: {
-			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/public.min.js': [ '<%= concat.public.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/plugin-name-public.min.js': [ '<%= concat.public.dest %>' ]
 		}
 	},
 	// Admin JS.
 	// -------------------------------------
 	admin: {
 		files: {
-			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/admin.min.js': [ '<%= concat.admin.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/plugin-name-admin.min.js': [ '<%= concat.admin.dest %>' ]
 		}
 	},
-	// Customizer JS.
+	// Gutenberg Editor JS.
  	// -------------------------------------
-	customizer: {
+	gutenberg_editor: {
 		files: {
-			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/customizer.min.js': [ '<%= concat.customizer.dest %>' ]
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/plugin-name-gutenberg-editor.min.js': [ '<%= concat.gutenberg_editor.dest %>' ]
 		}
 	},
-
+	// Gutenberg Editor JS.
+ 	// -------------------------------------
+	gutenberg_front: {
+		files: {
+			'<%= pluginInfo.assets_path_prod %>/<%= pluginInfo.js_dir %>/plugin-name-gutenberg-front.min.js': [ '<%= concat.gutenberg_front.dest %>' ]
+		}
+	}
 };

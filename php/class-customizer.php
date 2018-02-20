@@ -5,6 +5,8 @@
  * @since   0.1.0
  *
  * @package Plugin_Name
+ *
+ * @todo    Refactor the way this is scaffolded.
  */
 
 namespace Plugin_Name;

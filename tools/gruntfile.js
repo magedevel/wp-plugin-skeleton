@@ -9,7 +9,6 @@ module.exports = function(grunt) {
 			// -------------------------------------
 			staticMappings: {
 				sasslint:    'grunt-sass-lint',
-				sprite:      'grunt-spritesmith',
 			}
 		},
 		// -----------------------------------------------------------------------------
@@ -50,8 +49,8 @@ module.exports = function(grunt) {
 				// Assets path relative to the plugin
 				// root - NO trailing slash.
 				// -------------------------------------
-				assets_path_dev: 'assets/dev',
-				assets_path_prod: 'assets/prod',
+				assets_path_dev: 'assets/src',
+				assets_path_prod: 'assets/dist',
 
 				// -------------------------------------
 				// Image assets directory.
@@ -87,7 +86,7 @@ module.exports = function(grunt) {
 			// -------------------------------------
 			concatPublic: [
 				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/_modernizr_custom.js',
-				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/public.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-public.js'
 			],
 
 			// -------------------------------------
@@ -95,7 +94,7 @@ module.exports = function(grunt) {
 			// for ADMIN enqueues.
 			// -------------------------------------
 			concatAdmin: [
-				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/admin.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-admin.js'
 			],
 
 			// -------------------------------------
@@ -103,7 +102,23 @@ module.exports = function(grunt) {
 			// for CUSTOMIZER enqueues.
 			// -------------------------------------
 			concatCustomizer: [
-				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/customizer.js'
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-customizer.js'
+			],
+
+			// -------------------------------------
+			// Array of paths to Javascript files
+			// for GUTENBERG EDITOR enqueues.
+			// -------------------------------------
+			concatGutenbergEditor: [
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-gutenberg-editor.js'
+			],
+
+			// -------------------------------------
+			// Array of paths to Javascript files
+			// for GUTENBERG FRONT enqueues.
+			// -------------------------------------
+			concatGutenbergFront: [
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-gutenberg-front.js'
 			],
 
 			// -------------------------------------

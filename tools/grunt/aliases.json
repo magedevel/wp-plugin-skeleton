@@ -19,8 +19,5 @@
 		"phplint",
 		"sasslint",
 		"notify:linting"
-	],
-	"spritesmith": [
-		"sprite"
 	]
 }

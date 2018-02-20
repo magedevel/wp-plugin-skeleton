@@ -37,45 +37,44 @@ define( 'PLUGIN_NAME_SLUG', 'plugin-name' );
 define( 'PLUGIN_NAME_PREFIX', 'plugin_name' );
 
 /**
- * Classes.
+ * Classes (Comment out as appropriate).
  */
 require_once 'php/class-activator.php';
 require_once 'php/class-customizer.php';
 require_once 'php/class-deactivator.php';
 require_once 'php/class-enqueues.php';
-require_once 'php/class-gutenberg.php';
 require_once 'php/class-helpers.php';
 require_once 'php/class-notices.php';
 require_once 'php/class-settings.php';
 require_once 'php/class-uninstaller.php';
 
 /**
- * Namespaces.
+ * Namespaces (Comment out as appropriate).
  */
 use Plugin_Name\Activator;
 use Plugin_Name\Customizer;
 use Plugin_Name\Deactivator;
 use Plugin_Name\Enqueues;
-use Plugin_Name\Gutenberg;
 use Plugin_Name\Helpers;
 use Plugin_Name\Notices;
 use Plugin_Name\Settings;
 use Plugin_Name\Uninstaller;
 
 /**
- * Instances.
+ * Instances (Comment out as appropriate).
  */
 $activator   = new Activator();
 $customizer  = new Customizer();
 $deactivator = new Deactivator();
 $enqueues    = new Enqueues();
-$gutenberg   = new Gutenberg();
 $notices     = new Notices();
 $settings    = new Settings();
 $uninstaller = new Uninstaller();
 
 /**
  * Textdomain.
+ *
+ * First parameter must be a string, not a constant.
  */
 load_plugin_textdomain(
 	'plugin-name',
@@ -84,12 +83,13 @@ load_plugin_textdomain(
 );
 
 /**
- * Unleash Hell.
+ * Unleash Hell  (Comment out as appropriate).
+ *
+ * No need for a main controller; just run all the things.
  */
 $activator->run();
 $customizer->run();
 $deactivator->run();
-$gutenberg->run();
 $enqueues->run();
 $notices->run();
 $settings->run();

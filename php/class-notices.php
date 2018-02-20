@@ -57,6 +57,15 @@ class Notices {
 	private $plugin_prefix;
 
 	/**
+	 * Minimum PHP Version.
+	 *
+	 * @var     string
+	 * @access  private
+	 * @since   0.1.0
+	 */
+	private $min_php_ver;
+
+	/**
 	 * Constructor
 	 *
 	 * @since   0.1.0
@@ -66,6 +75,7 @@ class Notices {
 		$this->plugin_name   = PLUGIN_NAME_NAME;
 		$this->plugin_slug   = PLUGIN_NAME_SLUG;
 		$this->plugin_prefix = PLUGIN_NAME_PREFIX;
+		$this->min_php_ver   = '5.6';
 	}
 
 	/**
@@ -124,14 +134,12 @@ class Notices {
 	 */
 	public function display_php_version_warning_notice() {
 
-		$min_php_version = '5.6';
-
-		if ( version_compare( phpversion(), $min_php_version, '<' ) ) {
+		if ( version_compare( phpversion(), $this->min_php_ver, '<' ) ) {
 
 			$php_version_notice = __x(
 				sprintf(
 					'Your web-server is running an un-supported version of PHP. Please upgrade to version %s  or higher to avoid potential issues with %s and other WordPress plugins.',
-					$min_php_version, $this->plugin_name
+					$this->min_php_ver, $this->plugin_name
 				),
 				'plugin-name'
 			);

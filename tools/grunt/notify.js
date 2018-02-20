@@ -43,23 +43,6 @@ module.exports = {
 			message: '<%= pluginInfo.fancy_name %> images processed!'
 		}
 	},
-	// Notify once all documentation has
-	// been generated.
-	// -------------------------------------
-	docs: {
-		options: {
-			title: 'Docs',
-			message: '<%= pluginInfo.fancy_name %> docs generated!'
-		}
-	},
-	// Notify once all code has been linted.
-	// -------------------------------------
-	linting: {
-		options: {
-			title: 'Linting',
-			message: '<%= pluginInfo.fancy_name %> files linted!'
-		}
-	},
 	// Notify once all images have been
 	// minified.
 	// -------------------------------------

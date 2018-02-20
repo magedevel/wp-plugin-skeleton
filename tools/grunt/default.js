@@ -3,8 +3,7 @@
 // ----------------------------------------------------------------------------
 module.exports = function( grunt ) {
 	grunt.registerTask( 'default', [
-		'sync',
-		"lint",
+		// 'sync',
 		"sass",
 		"postcss",
 		"cssmin",
@@ -14,7 +13,6 @@ module.exports = function( grunt ) {
 		"newer:svgmin",
 		"newer:imagemin",
 		"clean",
-		"document",
 		"notify:build"
 	] );
 };

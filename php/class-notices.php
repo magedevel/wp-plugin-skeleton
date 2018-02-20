@@ -104,10 +104,11 @@ class Notices {
 			$activation_notices = array();
 
 			// Add a successful activation notice.
-			$activation_text = __x(
+			/* translators: 1 is the name of the plugin */
+			$activation_text = sprintf(
 				/* translators: 1 is the name of the plugin */
-				sprintf( '%s has been successfully activated.', $this->plugin_name ),
-				'plugin-name'
+				__( '%s has been successfully activated.', 'plugin-name' ),
+				$this->plugin_name
 			);
 			$activation_notice    = apply_filters( $this->plugin_prefix . '_activation_notice', $activation_text );
 			$activation_notices[] = $activation_notice;
@@ -136,14 +137,12 @@ class Notices {
 
 		if ( version_compare( phpversion(), $this->min_php_ver, '<' ) ) {
 
-			$php_version_notice = __x(
-				sprintf(
-					'Your web-server is running an un-supported version of PHP. Please upgrade to version %s  or higher to avoid potential issues with %s and other WordPress plugins.',
-					$this->min_php_ver, $this->plugin_name
-				),
-				'plugin-name'
+			$php_version_notice = sprintf(
+				/* translators: 1 is the minimum PHP version, 2 is the name of the plugin. */
+				__( 'Your web-server is running an un-supported version of PHP. Please upgrade to version %1$s  or higher to avoid potential issues with %2$s and other WordPress plugins.', 'plugin-name' ),
+				$this->min_php_ver,
+				$this->plugin_name
 			);
-
 			echo '<div class="error notice notice-warning"><p>' . esc_html( $php_version_notice ) . '</p></div>';
 		}
 

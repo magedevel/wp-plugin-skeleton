@@ -7,9 +7,7 @@ module.exports = function(grunt) {
 			// These static mappings help Grunt play
 			// nicely with certain plugins.
 			// -------------------------------------
-			staticMappings: {
-				sasslint:    'grunt-sass-lint',
-			}
+			staticMappings: {}
 		},
 		// -----------------------------------------------------------------------------
 		// Anything you define within the main 'data' object can be accessed

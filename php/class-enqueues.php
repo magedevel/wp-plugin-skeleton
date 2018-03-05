@@ -127,7 +127,7 @@ class Enqueues {
 		// Public CSS.
 		if ( $do_public_enqueue && $do_public_css_enqueue ) {
 			$public_css_url  = plugins_url( '/assets/dist/css/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.css', $this->plugin_root );
-			$public_css_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.css';
+			$public_css_path = dirname( $this->plugin_root ) . '/assets/dist/css' . $this->plugin_slug . '-public' . $this->asset_suffix . '.css';
 
 			wp_enqueue_style(
 				$this->plugin_slug . '-public-css',

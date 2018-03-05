@@ -83,7 +83,7 @@ module.exports = function(grunt) {
 			// for PUBLIC enqueues.
 			// -------------------------------------
 			concatPublic: [
-				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/_modernizr_custom.js',
+				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/lib/_modernizr-custom.js',
 				'<%= pluginInfo.assets_path_dev %>/<%= pluginInfo.js_dir %>/plugin-name-public.js'
 			],
 

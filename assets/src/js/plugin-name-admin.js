@@ -1,3 +1,4 @@
+// @flow
 ( function( $ ) {
 	'use strict';
 

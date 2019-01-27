@@ -1,31 +1,18 @@
 {
-	"name": "plugin-name",
-	"version": "0.1.0",
-	"private": "true",
-	"devDependencies": {
-		"autoprefixer": "^8.0.0",
-		"glob": "^7.1.2",
-		"grunt": "^1.0.2",
-		"grunt-contrib-clean": "^1.1.0",
-		"grunt-contrib-concat": "^1.0.1",
-		"grunt-contrib-cssmin": "^2.2.1",
-		"grunt-contrib-imagemin": "^2.0.1",
-		"grunt-contrib-uglify": "^3.3.0",
-		"grunt-contrib-watch": "^1.0.0",
-		"grunt-modernizr": "^1.0.2",
-		"grunt-newer": "^1.3.0",
-		"grunt-notify": "~0.4.5",
-		"grunt-postcss": "^0.9.0",
-		"grunt-sass": "^2.1.0",
-		"grunt-svgmin": "^5.0.0",
-		"grunt-sync": "^0.7.0",
-		"jit-grunt": "^0.10.0",
-		"load-grunt-config": "^0.19.2",
-		"node-sass": "^4.7.2",
-		"pixrem": "^4.0.1",
-		"time-grunt": "^1.4.0"
-	},
-	"dependencies": {
-		"load-grunt-tasks": "^3.5.2"
-	}
+    "name": "plugin-name",
+    "version": "0.1.0",
+    "private": "true",
+    "devDependencies": {
+        "node-sass": "^4.11.0",
+        "parcel-bundler": "^1.11.0"
+    },
+    "dependencies": {
+        "autoprefixer": "^9.4.6",
+        "postcss-preset-env": "^6.5.0"
+    },
+    "scripts": {
+        "dev": "parcel assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
+        "dev-watch": "parcel watch assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
+        "build": "parcel build assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist"
+    }
 }

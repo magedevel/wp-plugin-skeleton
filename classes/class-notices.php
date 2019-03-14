@@ -4,10 +4,10 @@
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 
-namespace Plugin_Name;
+namespace DTG\Plugin_Name;
 
 /**
  * Class Notices
@@ -16,7 +16,7 @@ namespace Plugin_Name;
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 class Notices {
 

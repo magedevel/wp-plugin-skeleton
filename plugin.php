@@ -6,13 +6,13 @@
  *
  * @since 0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  *
  * Plugin Name:  Plugin Name
  * Plugin URI:   https://github.com/davetgreen/plugin-name
  * Description:  A brief description of the plugin.
  * Version:      0.1.0
- * Contributors: davetgreen, mkdo
+ * Contributors: davetgreen
  * Author:       Dave Green <hello@davetgreen.me>
  * Author URI:   https://www.davetgreen.me
  * License:      GPL-3.0+
@@ -51,14 +51,14 @@ require_once 'php/class-uninstaller.php';
 /**
  * Namespaces (Comment out as appropriate).
  */
-use Plugin_Name\Activator;
-use Plugin_Name\Customizer;
-use Plugin_Name\Deactivator;
-use Plugin_Name\Enqueues;
-use Plugin_Name\Helpers;
-use Plugin_Name\Notices;
-use Plugin_Name\Settings;
-use Plugin_Name\Uninstaller;
+use DTG\Plugin_Name\Activator;
+use DTG\Plugin_Name\Customizer;
+use DTG\Plugin_Name\Deactivator;
+use DTG\Plugin_Name\Enqueues;
+use DTG\Plugin_Name\Helpers;
+use DTG\Plugin_Name\Notices;
+use DTG\Plugin_Name\Settings;
+use DTG\Plugin_Name\Uninstaller;
 
 /**
  * Instances (Comment out as appropriate).

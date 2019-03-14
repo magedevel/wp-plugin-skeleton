@@ -4,15 +4,10 @@
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 
-namespace Plugin_Name;
-
-/**
- * Traits
- */
-require_once 'traits/trait-render-view.php';
+namespace DTG\Plugin_Name;
 
 /**
  * Class Helpers.
@@ -21,8 +16,8 @@ require_once 'traits/trait-render-view.php';
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 class Helpers {
-	use Helper_Render_View;
+
 }

@@ -4,6 +4,7 @@
     "private": "true",
     "devDependencies": {
         "node-sass": "^4.11.0",
+        "npm-run-all": "^4.1.5",
         "parcel-bundler": "^1.11.0"
     },
     "dependencies": {
@@ -11,8 +12,11 @@
         "postcss-preset-env": "^6.5.0"
     },
     "scripts": {
-        "dev": "parcel assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
-        "dev-watch": "parcel watch assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
+        "dev-admin-scss": "parcel assets/src/scss/plugin-name-admin.scss --out-dir assets/dist",
+        "dev-public-scss": "parcel assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
+        "dev-admin-js": "parcel assets/src/js/plugin-name-admin.js --out-dir assets/dist",
+        "dev-public-js": "parcel assets/src/js/plugin-name-public.js --out-dir assets/dist",
+		"dev": "parcel assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
         "build": "parcel build assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist"
     }
 }

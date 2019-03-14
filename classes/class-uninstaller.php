@@ -4,12 +4,12 @@
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  *
  * @todo - Needs work to provide proper validation ahead of an uninstall.
  */
 
-namespace Plugin_Name;
+namespace DTG\Plugin_Name;
 
 /**
  * Class Uninstaller
@@ -27,7 +27,7 @@ namespace Plugin_Name;
  *
  * @since       0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 class Uninstaller {
 

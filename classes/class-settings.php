@@ -4,17 +4,17 @@
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 
-namespace Plugin_Name;
+namespace DTG\Plugin_Name;
 
 /**
  * Class Settings
  *
  * @since   0.1.0
  *
- * @package Plugin_Name
+ * @package DTG\Plugin_Name
  */
 class Settings {
 

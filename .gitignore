@@ -4,6 +4,7 @@
 # OS Ignores
 # -------------------------------------
 .DS_Store
+.cache
 node_modules
 vendor
 composer.lock
@@ -13,5 +14,4 @@ yarn-error.log
 
 # Assets
 # -------------------------------------
-assets/dist/js/
-assets/dist/css/
+assets/dist/

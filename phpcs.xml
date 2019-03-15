@@ -16,25 +16,10 @@
 	<exclude-pattern>*.min.js</exclude-pattern>
 
 	<!-- Excludes: Kapow! specific -->
-	<exclude-pattern>static/*</exclude-pattern>
-	<exclude-pattern>reports/*</exclude-pattern>
-	<exclude-pattern>docs/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>provision/*</exclude-pattern>
-	<exclude-pattern>*.png</exclude-pattern>
-	<exclude-pattern>*.jpg</exclude-pattern>
-	<exclude-pattern>*.gif</exclude-pattern>
-	<exclude-pattern>build/wordpress/*</exclude-pattern>
-	<exclude-pattern>build/wp-content/mu-plugins/(?!kapow-core/|project-core/)*/*</exclude-pattern>
-	<exclude-pattern>build/wp-content/plugins/*</exclude-pattern>
-	<exclude-pattern>build/wp-content/themes/index.php</exclude-pattern>
-	<exclude-pattern>build/wp-content/index.php</exclude-pattern>
-	<exclude-pattern>build/polyfills/*</exclude-pattern>
+	<exclude-pattern>blocks/*</exclude-pattern>
+	<exclude-pattern>languages/*</exclude-pattern>
 	<exclude-pattern>phpcs.xml</exclude-pattern>
-
-	<!-- Includes -->
-	<include-pattern>build/wp-content/mu-plugins/kapow-core/*</include-pattern>
-	<include-pattern>build/wp-content/mu-plugins/project-core/*</include-pattern>
 
 	<!--
 		Don't get angry about checking files that don't contain code
@@ -98,23 +83,21 @@
 	<!-- Ensure that we're not using any functions deprecated three major versions ago -->
 	<rule ref="WordPress.WP.DeprecatedFunctions">
 		<properties>
-			<property name="minimum_supported_version" value="4.7" />
+			<property name="minimum_supported_version" value="4.8" />
 		</properties>
 	</rule>
 
-	<!-- These two sniffs won't be able until WPCS 0.12.0 -->
-
 	<!-- Ensure that all globals have a project specific or Kapow prefix -->
-<!-- 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="stark_industries,kapow" />
+			<property name="prefixes" type="array" value="plugin_name" />
 		</properties>
-	</rule> -->
+	</rule>
 
 	<!-- Ensure that we're not using any parameters deprecated three major versions ago -->
-<!-- 	<rule ref="WordPress.WP.DeprecatedParameters">
+	<rule ref="WordPress.WP.DeprecatedParameters">
 		<properties>
 			<property name="minimum_supported_version" value="4.5" />
 		</properties>
-	</rule> -->
+	</rule>
 </ruleset>

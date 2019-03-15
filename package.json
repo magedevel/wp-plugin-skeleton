@@ -12,11 +12,17 @@
         "postcss-preset-env": "^6.5.0"
     },
     "scripts": {
-        "dev-admin-scss": "parcel assets/src/scss/plugin-name-admin.scss --out-dir assets/dist",
-        "dev-public-scss": "parcel assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
-        "dev-admin-js": "parcel assets/src/js/plugin-name-admin.js --out-dir assets/dist",
-        "dev-public-js": "parcel assets/src/js/plugin-name-public.js --out-dir assets/dist",
-		"dev": "parcel assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist",
-        "build": "parcel build assets/src/js/plugin-name-admin.js assets/src/js/plugin-name-public.js assets/src/scss/plugin-name-public.scss assets/src/scss/plugin-name-public.scss --out-dir assets/dist"
+        "dev-admin-scss": "parcel assets/src/scss/plugin-name-admin.scss --out-dir assets/dist --no-cache",
+        "dev-public-scss": "parcel assets/src/scss/plugin-name-public.scss --out-dir assets/dist --no-cache",
+        "dev-admin-js": "parcel assets/src/js/plugin-name-admin.js --out-dir assets/dist --no-cache",
+        "dev-public-js": "parcel assets/src/js/plugin-name-public.js --out-dir assets/dist --no-cache",
+		"dev-blocks": "parcel blocks/index.js --out-file blocks.js --out-dir assets/dist --no-cache",
+        "build-admin-scss": "parcel build assets/src/scss/plugin-name-admin.scss --out-dir assets/dist --no-cache",
+        "build-public-scss": "parcel build assets/src/scss/plugin-name-public.scss --out-dir assets/dist --no-cache",
+        "build-admin-js": "parcel build assets/src/js/plugin-name-admin.js --out-dir assets/dist --no-cache",
+        "build-public-js": "parcel build assets/src/js/plugin-name-public.js --out-dir assets/dist --no-cache",
+		"build-blocks": "parcel build blocks/index.js --out-file blocks.js --out-dir assets/dist --no-cache",
+		"dev": "npm-run-all -p dev-*",
+        "build": "npm-run-all -p build-*"
     }
 }

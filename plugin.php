@@ -85,7 +85,7 @@ load_plugin_textdomain(
 /**
  * Unleash Hell  (Comment out as appropriate).
  *
- * No need for a main controller; just run all the things.
+ * No need for a main controller; just run all the things!
  */
 $activator->run();
 $customizer->run();

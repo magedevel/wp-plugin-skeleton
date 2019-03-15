@@ -10,12 +10,11 @@
 	<!-- Excludes: Generic -->
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
-	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*.json</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
 	<exclude-pattern>*.min.js</exclude-pattern>
 
-	<!-- Excludes: Kapow! specific -->
+	<!-- Excludes: Plugin Specific -->
 	<exclude-pattern>assets/*</exclude-pattern>
 	<exclude-pattern>blocks/*</exclude-pattern>
 	<exclude-pattern>languages/*</exclude-pattern>

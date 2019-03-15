@@ -5,6 +5,8 @@
  * @since   0.1.0
  *
  * @package DTG\Plugin_Name
+ *
+ * @todo    Refactor the asset paths.
  */
 
 namespace DTG\Plugin_Name;

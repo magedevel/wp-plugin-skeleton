@@ -9,6 +9,11 @@
 
 namespace DTG\Plugin_Name;
 
+// Abort if this file is called directly.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Class Helpers.
  *

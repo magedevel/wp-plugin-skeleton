@@ -1,10 +1,13 @@
 <?php
 /**
- * Activator Class.
+ * Gutenberg Class.
  *
  * @since   0.1.0
  *
  * @package DTG\Plugin_Name
+ *
+ * @todo    Add the Gutenberg PHP methods needed to register blocks.
+ * @see     https://github.com/mkdo/caspian/blob/master/build/wp-content/mu-plugins/mkdo-blocks/index.php
  */
 
 namespace DTG\Plugin_Name;
@@ -15,15 +18,15 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Class Activator
+ * Class Gutenberg
  *
- * Carry out actions when the plugin is activated.
+ * Register Gutenberg blocks.
  *
  * @since   0.1.0
  *
  * @package DTG\Plugin_Name
  */
-class Activator {
+class Gutenberg {
 
 	/**
 	 * Path to the root plugin file.
@@ -79,17 +82,5 @@ class Activator {
 	 * @since   0.1.0
 	 */
 	public function run() {
-		// Register the activation callback.
-		register_activation_hook( $this->plugin_root, array( $this, 'activate' ) );
-	}
-
-	/**
-	 * Activate the plugin.
-	 *
-	 * @since   0.1.0
-	 */
-	public function activate() {
-		// Set a transient to confirm activation.
-		set_transient( $this->plugin_prefix . '_activated', true, 10 );
 	}
 }

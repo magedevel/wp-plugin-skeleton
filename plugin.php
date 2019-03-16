@@ -39,15 +39,16 @@ define( 'PLUGIN_NAME_PREFIX', 'plugin_name' );
 /**
  * Classes (Comment out as appropriate).
  */
-require_once 'php/class-activator.php';
-require_once 'php/class-customizer.php';
-require_once 'php/class-deactivator.php';
-require_once 'php/class-enqueues.php';
-require_once 'php/class-gutenberg.php';
-require_once 'php/class-helpers.php';
-require_once 'php/class-notices.php';
-require_once 'php/class-settings.php';
-require_once 'php/class-uninstaller.php';
+require_once 'blocks/blocks.php';
+require_once 'classes/class-activator.php';
+require_once 'classes/class-customizer.php';
+require_once 'classes/class-deactivator.php';
+require_once 'classes/class-enqueues.php';
+require_once 'classes/class-gutenberg.php';
+require_once 'classes/class-helpers.php';
+require_once 'classes/class-notices.php';
+require_once 'classes/class-settings.php';
+require_once 'classes/class-uninstaller.php';
 
 /**
  * Namespaces (Comment out as appropriate).
@@ -65,14 +66,14 @@ use DTG\Plugin_Name\Uninstaller;
 /**
  * Instances (Comment out as appropriate).
  */
-$activator   = new Activator();
-$customizer  = new Customizer();
-$deactivator = new Deactivator();
-$enqueues    = new Enqueues();
-$gutenberg   - new Gutenberg();
-$notices     = new Notices();
-$settings    = new Settings();
-$uninstaller = new Uninstaller();
+$plugin_name_activator   = new Activator();
+$plugin_name_customizer  = new Customizer();
+$plugin_name_deactivator = new Deactivator();
+$plugin_name_enqueues    = new Enqueues();
+$plugin_name_gutenberg   = new Gutenberg();
+$plugin_name_notices     = new Notices();
+$plugin_name_settings    = new Settings();
+$plugin_name_uninstaller = new Uninstaller();
 
 /**
  * Textdomain.
@@ -87,14 +88,12 @@ load_plugin_textdomain(
 
 /**
  * Unleash Hell  (Comment out as appropriate).
- *
- * No need for a main controller; just run all the things!
  */
-$activator->run();
-$customizer->run();
-$deactivator->run();
-$enqueues->run();
-$gutenberg->run();
-$notices->run();
-$settings->run();
-$uninstaller->run();
+$plugin_name_activator->run();
+$plugin_name_customizer->run();
+$plugin_name_deactivator->run();
+$plugin_name_enqueues->run();
+$plugin_name_gutenberg->run();
+$plugin_name_notices->run();
+$plugin_name_settings->run();
+$plugin_name_uninstaller->run();

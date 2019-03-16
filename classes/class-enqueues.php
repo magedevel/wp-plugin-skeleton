@@ -59,22 +59,13 @@ class Enqueues {
 	private $plugin_prefix;
 
 	/**
-	 * Debug mode status
+	 * Gutenberg dependencies.
 	 *
-	 * @var     bool
+	 * @var     array
 	 * @access  private
 	 * @since   0.1.0
 	 */
-	private $debug_mode;
-
-	/**
-	 * Asset Suffix
-	 *
-	 * @var     string
-	 * @access  private
-	 * @since   0.1.0
-	 */
-	private $asset_suffix;
+	private $dependencies;
 
 	/**
 	 * Constructor.
@@ -87,10 +78,15 @@ class Enqueues {
 		$this->plugin_slug   = PLUGIN_NAME_SLUG;
 		$this->plugin_prefix = PLUGIN_NAME_PREFIX;
 
-		// Determine whether we're in debug mode, and what the
-		// asset suffix should be.
-		$this->debug_mode   = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? true : false;
-		$this->asset_suffix = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? '' : '.min';
+		$this->dependencies = [
+			'wp-api',
+			'wp-blocks',
+			'wp-components',
+			'wp-data',
+			'wp-editor',
+			'wp-element',
+			'wp-i18n',
+		];
 	}
 
 	/**
@@ -108,10 +104,10 @@ class Enqueues {
 		// Enqueue Customizer JS.
 		add_action( 'customize_preview_init', array( $this, 'customizer_preview_js' ), 10 );
 
-		// Enqueue Customizer JS.
+		// Enqueue Block Editor Assets.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_editor_js' ), 10 );
 
-		// Enqueue Customizer JS.
+		// Enqueue Block Front and Back End Assets.
 		add_action( 'enqueue_block_assets', array( $this, 'gutenberg_front_js' ), 10 );
 	}
 

@@ -80,7 +80,7 @@ class Notices {
 		$this->plugin_name   = PLUGIN_NAME_NAME;
 		$this->plugin_slug   = PLUGIN_NAME_SLUG;
 		$this->plugin_prefix = PLUGIN_NAME_PREFIX;
-		$this->min_php_ver   = '5.6';
+		$this->min_php_ver   = '7.2';
 	}
 
 	/**
@@ -115,7 +115,7 @@ class Notices {
 				__( '%s has been successfully activated.', 'plugin-name' ),
 				$this->plugin_name
 			);
-			$activation_notice    = apply_filters( $this->plugin_prefix . '_activation_notice', $activation_text );
+			$activation_notice    = apply_filters( 'plugin_name_activation_notice', $activation_text );
 			$activation_notices[] = $activation_notice;
 
 			// Have we got any notices to display?

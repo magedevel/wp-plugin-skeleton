@@ -89,6 +89,7 @@ class Activator {
 	 * @since   0.1.0
 	 */
 	public function activate() {
+
 		// Set a transient to confirm activation.
 		set_transient( $this->plugin_prefix . '_activated', true, 10 );
 	}

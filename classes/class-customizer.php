@@ -5,8 +5,6 @@
  * @since   0.1.0
  *
  * @package DTG\Plugin_Name
- *
- * @todo    Refactor the way this is scaffolded.
  */
 
 namespace DTG\Plugin_Name;
@@ -82,6 +80,7 @@ class Customizer {
 	 */
 	public function run() {
 		// Handle Settings, Panels, Sections and Controls.
+		// NOTE: These hooks contain simple example code to get you up and running.
 		add_action( 'customize_register', array( $this, 'customizer_settings' ), 10 );
 		add_action( 'customize_register', array( $this, 'customizer_panels' ), 15 );
 		add_action( 'customize_register', array( $this, 'customizer_sections' ), 20 );
@@ -97,6 +96,13 @@ class Customizer {
 	 */
 	public function customizer_settings( $wp_customize ) {
 
+		$wp_customize->add_setting(
+			$this->plugin_prefix . '_example_field',
+			array(
+				'type'      => 'option',
+				'transport' => 'postMessage',
+			)
+		);
 	}
 
 	/**
@@ -108,6 +114,13 @@ class Customizer {
 	 */
 	public function customizer_panels( $wp_customize ) {
 
+		$wp_customize->add_panel(
+			$this->plugin_prefix . '_customizer_panel',
+			array(
+				'title'    => __( 'Plugin Name Settings', 'plugin-name' ),
+				'priority' => 10,
+			)
+		);
 	}
 
 	/**
@@ -119,6 +132,14 @@ class Customizer {
 	 */
 	public function customizer_sections( $wp_customize ) {
 
+		$wp_customize->add_section(
+			$this->plugin_prefix . '_example_section',
+			array(
+				'title'    => __( 'Example Section', 'plugin-name' ),
+				'priority' => 10,
+				'panel'    => $this->plugin_prefix . '_customizer_panel',
+			)
+		);
 	}
 
 	/**
@@ -130,5 +151,18 @@ class Customizer {
 	 */
 	public function customizer_controls( $wp_customize ) {
 
+		$wp_customize->add_control(
+			new \WP_Customize_Control(
+				$wp_customize,
+				$this->plugin_prefix . '_example_field',
+				array(
+					'label'    => __( 'Example Text', 'plugin-name' ),
+					'section'  => $this->plugin_prefix . '_example_section',
+					'settings' => $this->plugin_prefix . '_example_field',
+					'type'     => 'text',
+					'priority' => 1,
+				)
+			)
+		);
 	}
 }

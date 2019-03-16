@@ -7,6 +7,9 @@
 
 	<description>Coding standards for Plugin Name using WP Enforcer.</description>
 
+	<!-- Explicitly point to where WPCS lives in the project -->
+	<config name="installed_paths" value="wpcs" />
+
 	<!-- Excludes: Generic -->
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
@@ -39,8 +42,8 @@
 	</rule>
 
 	<!-- Add in some extra rules from other standards. -->
-	<!-- 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/> -->
-	<!-- 	<rule ref="Generic.Commenting.Todo"/> -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
 
 	<!-- Include the WordPress Extra (Core + Extras) ruleset, with exclusions. -->
 	<rule ref="WordPress-Extra">
@@ -52,18 +55,37 @@
 	<!-- Include the WordPress Documentation ruleset  -->
 	<rule ref="WordPress-Docs" />
 
+
+	<!-- Include the WordPress Documentation ruleset  -->
+	<rule ref="WordPress-Docs" />
+
 	<!-- VIP: Check that input is validated and sanitize -->
-	<rule ref="WordPress.VIP.ValidatedSanitizedInput">
-		<properties>
-			<property name="check_validation_in_scope_only" value="true" />
-		</properties>
-	</rule>
+	<rule ref="WordPress.Security.ValidatedSanitizedInput"/>
 
 	<!-- VIP: Ensure that output is escaped -->
-	<rule ref="WordPress.XSS.EscapeOutput"/>
+	<rule ref="WordPress.Security.EscapeOutput"/>
 
 	<!-- VIP: Ensure that nonce verification is in place where relevant -->
-	<rule ref="WordPress.CSRF.NonceVerification"/>
+	<rule ref="WordPress.Security.NonceVerification"/>
+
+	<!-- DB: Discourage Direct DB connections -->
+	<rule ref="WordPress.DB.DirectDatabaseQuery"/>
+
+	<!-- DB: Discourage un-prepared SQL queries -->
+	<rule ref="WordPress.DB.PreparedSQL"/>
+
+	<!-- DB: Highlight slow DB queries -->
+	<rule ref="WordPress.DB.SlowDBQuery"/>
+
+	<!-- WP: Discourage overriding global variables -->
+	<rule ref="WordPress.WP.GlobalVariablesOverride"/>
+
+	<!-- WP: Warn when the posts per page value is too high -->
+	<rule ref="WordPress.WP.PostsPerPage">
+		<properties>
+			<property name="posts_per_page" value="250"/>
+		</properties>
+	</rule>
 
 	<!-- Allow theme filename exceptions -->
 	<rule ref="WordPress.Files.FileName">
@@ -72,7 +94,14 @@
 		</properties>
 	</rule>
 
-	<!-- Ensure that any i18n functions have a valid project-specific or Kapow textdomain -->
+	<!-- Ensure that all globals have a plugin-specific prefix -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="plugin_name,DTG\Plugin_Name" />
+		</properties>
+	</rule>
+
+	<!-- Ensure that any i18n functions have a valid plugin-specific textdomain -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array" value="plugin-name" />
@@ -86,17 +115,10 @@
 		</properties>
 	</rule>
 
-	<!-- Ensure that all globals have a project specific or Kapow prefix -->
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-		<properties>
-			<property name="prefixes" type="array" value="plugin_name" />
-		</properties>
-	</rule>
-
 	<!-- Ensure that we're not using any parameters deprecated three major versions ago -->
 	<rule ref="WordPress.WP.DeprecatedParameters">
 		<properties>
-			<property name="minimum_supported_version" value="4.5" />
+			<property name="minimum_supported_version" value="4.8" />
 		</properties>
 	</rule>
 </ruleset>

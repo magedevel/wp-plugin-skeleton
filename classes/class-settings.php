@@ -77,12 +77,11 @@ class Settings {
 	 * @since   0.1.0
 	 */
 	public function run() {
-		// @codingStandardsIgnoreStart
-		// Uncomment these hooks to create a plugin settings page.
-		// add_action( 'admin_init', array( $this, 'init_settings_page' ) );
-		// add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
-		// add_action( 'plugin_action_links_' . plugin_basename( $this->plugin_root ) , array( $this, 'add_setings_link' ) );
-		// @codingStandardsIgnoreEnd
+		// Flesh out a settings page UI, complete with settings and fields.
+		// NOTE: These hooks contain simple example code to get you up and running.
+		add_action( 'admin_init', array( $this, 'init_settings_page' ) );
+		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+		add_action( 'plugin_action_links_' . plugin_basename( $this->plugin_root ), array( $this, 'add_setings_link' ) );
 	}
 
 	/**
@@ -99,7 +98,7 @@ class Settings {
 		add_settings_section(
 			$this->plugin_prefix . '_example_section',
 			esc_html__( 'Example Section Heading', 'plugin-name' ),
-			array( $this, $this->plugin_prefix . '_example_section_cb' ),
+			array( $this, 'example_section_cb' ),
 			$this->plugin_prefix . '_settings'
 		);
 
@@ -107,7 +106,7 @@ class Settings {
 		add_settings_field(
 			$this->plugin_prefix . '_example_field',
 			esc_html__( 'Example Field Label:', 'plugin-name' ),
-			array( $this, $this->plugin_prefix . '_example_field_cb' ),
+			array( $this, 'example_field_cb' ),
 			$this->plugin_prefix . '_settings',
 			$this->plugin_prefix . '_example_section'
 		);
@@ -118,7 +117,7 @@ class Settings {
 	 *
 	 * @since   0.1.0
 	 */
-	public function plugin_name_example_section_cb() {
+	public function example_section_cb() {
 		echo '<p>' . esc_html( 'Example description for this section.', 'plugin-name' ) . '</p>';
 	}
 
@@ -127,7 +126,7 @@ class Settings {
 	 *
 	 * @since   0.1.0
 	 */
-	public function plugin_name_example_field_cb() {
+	public function example_field_cb() {
 		$example_option = get_option( $this->plugin_prefix . '_example_option', 'Default text...' );
 		?>
 
@@ -153,11 +152,12 @@ class Settings {
 	 * @since   0.1.0
 	 */
 	public function add_settings_page() {
-		add_submenu_page(
-			'settings-general.php',
+
+		$test = add_submenu_page(
+			'options-general.php',
 			esc_html__( 'Example Settings', 'plugin-name' ),
 			esc_html__( 'Plugin Name', 'plugin-name' ),
-			'manage_settings',
+			'manage_options',
 			$this->plugin_prefix,
 			array( $this, 'render_settings_page' )
 		);
@@ -190,7 +190,10 @@ class Settings {
 	 * @since   0.1.0
 	 */
 	public function add_setings_link( $links ) {
-		array_unshift( $links, '<a href="settings-general.php?page=' . esc_attr( $this->plugin_prefix ) . '">' . esc_html__( 'Settings', 'plugin-name' ) . '</a>' );
+		array_unshift(
+			$links,
+			'<a href="' . esc_url( admin_url() ) . 'options-general.php?page=' . esc_attr( $this->plugin_prefix ) . '">' . esc_html__( 'Settings', 'plugin-name' ) . '</a>'
+		);
 
 		return $links;
 	}

@@ -6,7 +6,6 @@
  *
  * @package DTG\Plugin_Name
  *
- * @todo    Add the Gutenberg PHP methods needed to register blocks.
  * @see     https://github.com/mkdo/caspian/blob/master/build/wp-content/mu-plugins/mkdo-blocks/index.php
  */
 
@@ -82,7 +81,7 @@ class Gutenberg {
 	 * @since   0.1.0
 	 */
 	public function run() {
-		add_action( 'block_categories', array( $this, 'categories' ), 10, 2 );
+		add_action( 'block_categories', array( $this, 'register_custom_category' ), 10, 2 );
 		add_filter( 'image_size_names_choose', array( $this, 'expose_custom_image_sizes' ), 10, 1 );
 	}
 
@@ -94,7 +93,7 @@ class Gutenberg {
 	 *
 	 * @since 0.1.0
 	 */
-	public function block_categories( $categories ) {
+	public function register_custom_category( $categories ) {
 
 		return array_merge(
 			$categories,

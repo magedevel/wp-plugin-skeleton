@@ -39,7 +39,7 @@ define( 'PLUGIN_NAME_PREFIX', 'plugin_name' );
 /**
  * Classes (Comment out as appropriate).
  */
-require_once 'blocks/blocks.php';
+require_once 'blocks/plugin-name-blocks.php';
 require_once 'classes/class-activator.php';
 require_once 'classes/class-customizer.php';
 require_once 'classes/class-deactivator.php';

@@ -105,10 +105,10 @@ class Enqueues {
 		add_action( 'customize_preview_init', array( $this, 'customizer_preview_js' ), 10 );
 
 		// Enqueue Block Editor Assets.
-		add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_editor_js' ), 10 );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_assets' ), 10 );
 
 		// Enqueue Block Front and Back End Assets.
-		add_action( 'enqueue_block_assets', array( $this, 'gutenberg_front_js' ), 10 );
+		add_action( 'enqueue_block_assets', array( $this, 'block_assets' ), 10 );
 	}
 
 	/**
@@ -118,36 +118,28 @@ class Enqueues {
 	 */
 	public function public_enqueue_scripts() {
 
-		$do_public_enqueue     = apply_filters( $this->plugin_prefix . 'do_public_enqueue', true );
-		$do_public_css_enqueue = apply_filters( $this->plugin_prefix . 'do_public_css_enqueue', true );
-		$do_public_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_public_js_enqueue', true );
-
 		// Public CSS.
-		if ( $do_public_enqueue && $do_public_css_enqueue ) {
-			$public_css_url  = plugins_url( '/assets/dist/css/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.css', $this->plugin_root );
-			$public_css_path = dirname( $this->plugin_root ) . '/assets/dist/css' . $this->plugin_slug . '-public' . $this->asset_suffix . '.css';
+		$public_css_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-public.css', $this->plugin_root );
+		$public_css_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-public.css';
 
-			wp_enqueue_style(
-				$this->plugin_slug . '-public-css',
-				$public_css_url,
-				array(),
-				filemtime( $public_css_path )
-			);
-		}
+		wp_enqueue_style(
+			$this->plugin_slug . '-public-css',
+			$public_css_url,
+			array(),
+			filemtime( $public_css_path )
+		);
 
 		// Public JS.
-		if ( $do_public_enqueue && $do_public_js_enqueue ) {
-			$public_js_url  = plugins_url( '/assets/dist/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js', $this->plugin_root );
-			$public_js_path = dirname( $this->plugin_root ) . '/assets/dist/js/' . $this->plugin_slug . '-public' . $this->asset_suffix . '.js';
+		$public_js_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-public.js', $this->plugin_root );
+		$public_js_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-public.js';
 
-			wp_enqueue_script(
-				$this->plugin_slug . '-public-js',
-				$public_js_url,
-				array( 'jquery' ),
-				filemtime( $public_js_path ),
-				true
-			);
-		}
+		wp_enqueue_script(
+			$this->plugin_slug . '-public-js',
+			$public_js_url,
+			array( 'jquery' ),
+			filemtime( $public_js_path ),
+			true
+		);
 	}
 
 	/**
@@ -157,34 +149,28 @@ class Enqueues {
 	 */
 	public function admin_enqueue_scripts() {
 
-		$do_admin_enqueue     = apply_filters( $this->plugin_prefix . 'do_admin_enqueue', true );
-		$do_admin_css_enqueue = apply_filters( $this->plugin_prefix . 'do_admin_css_enqueue', true );
-		$do_admin_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_admin_js_enqueue', true );
+		// Admin CSS.
+		$admin_css_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-admin.css', $this->plugin_root );
+		$admin_css_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-admin.css';
 
-		if ( $do_admin_enqueue && $do_admin_css_enqueue ) {
-			$admin_css_url  = plugins_url( '/assets/dist/css/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.css', $this->plugin_root );
-			$admin_css_path = dirname( $this->plugin_root ) . '/assets/dist/css/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.css';
+		wp_enqueue_style(
+			$this->plugin_slug . '-admin-css',
+			$admin_css_url,
+			array(),
+			filemtime( $admin_css_path )
+		);
 
-			wp_enqueue_style(
-				$this->plugin_slug . '-admin-css',
-				$admin_css_url,
-				array(),
-				filemtime( $admin_css_path )
-			);
-		}
+		// Admin JS.
+		$admin_js_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-admin.js', $this->plugin_root );
+		$admin_js_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-admin.js';
 
-		if ( $do_admin_enqueue && $do_admin_js_enqueue ) {
-			$admin_js_url  = plugins_url( '/assets/dist/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js', $this->plugin_root );
-			$admin_js_path = dirname( $this->plugin_root ) . '/assets/dist/js/' . $this->plugin_slug . '-admin' . $this->asset_suffix . '.js';
-
-			wp_enqueue_script(
-				$this->plugin_slug . '-admin-js',
-				$admin_js_url,
-				array( 'jquery' ),
-				filemtime( $admin_js_path ),
-				true
-			);
-		}
+		wp_enqueue_script(
+			$this->plugin_slug . '-admin-js',
+			$admin_js_url,
+			array( 'jquery' ),
+			filemtime( $admin_js_path ),
+			true
+		);
 	}
 
 	/**
@@ -194,20 +180,16 @@ class Enqueues {
 	 */
 	public function customizer_preview_js() {
 
-		$do_customizer_js_enqueue = apply_filters( $this->plugin_prefix . 'do_customizer_js_enqueue', true );
+		$customizer_js_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-customizer.js', $this->plugin_root );
+		$customizer_js_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-customizer.js';
 
-		if ( $do_customizer_js_enqueue ) {
-			$customizer_js_url  = plugins_url( '/assets/dist/js/' . $this->plugin_slug . '-customizer' . $this->asset_suffix . '.js', $this->plugin_root );
-			$customizer_js_path = dirname( $this->plugin_root ) . '/assets/dist/js/' . $this->plugin_slug . '-customizer' . $this->asset_suffix . '.js';
-
-			wp_enqueue_script(
-				$this->plugin_slug . '-customizer',
-				$customizer_js_url,
-				array( 'customize-preview' ),
-				filemtime( $customizer_js_path ),
-				true
-			);
-		}
+		wp_enqueue_script(
+			$this->plugin_slug . '-customizer',
+			$customizer_js_url,
+			array( 'customize-preview' ),
+			filemtime( $customizer_js_path ),
+			true
+		);
 	}
 
 	/**
@@ -215,44 +197,37 @@ class Enqueues {
 	 *
 	 * @since   0.1.0
 	 */
-	public function gutenberg_editor_js() {
+	public function block_editor_assets() {
 
-		$do_gutenberg_editor_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_gutenberg_editor_js_enqueue', true );
-		$do_gutenberg_editor_css_enqueue = apply_filters( $this->plugin_prefix . 'do_gutenberg_editor_css_enqueue', true );
+		$editor_js_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-block-editor.js', $this->plugin_root );
+		$editor_js_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-block-editor.js';
 
-		if ( $do_gutenberg_editor_js_enqueue ) {
+		wp_enqueue_script(
+			$this->plugin_slug . '-block-editor-js',
+			$editor_js_url,
+			$this->dependencies,
+			filemtime( $editor_js_path ),
+			true
+		);
 
-			$gutenberg_editor_js_url  = plugins_url( '/assets/dist/js/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.js', $this->plugin_root );
-			$gutenberg_editor_js_path = dirname( $this->plugin_root ) . '/assets/dist/js/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.js';
+		wp_localize_script(
+			$this->plugin_slug . '-block-editor-js',
+			'plugin_name_gb_data',
+			[
+				'rest_url' => rest_url(),
+				'base_url' => plugins_url( 'blocks', __FILE__ ),
+			]
+		);
 
-			wp_enqueue_script(
-				$this->plugin_slug . '-gutenberg-editor-js',
-				$gutenberg_editor_js_url,
-				[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api' ],
-				filemtime( $gutenberg_editor_js_path ),
-				true
-			);
+		$editor_css_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-block-editor.css', $this->plugin_root );
+		$editor_css_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-block-editor.css';
 
-			wp_localize_script(
-				$this->plugin_slug . '-gutenberg-editor-js',
-				[
-					'rest_url' => esc_url( rest_url() ),
-				]
-			);
-		}
-
-		if ( $do_gutenberg_editor_css_enqueue ) {
-
-			$gutenberg_editor_css_url  = plugins_url( '/assets/dist/css/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.css', $this->plugin_root );
-			$gutenberg_editor_css_path = dirname( $this->plugin_root ) . '/assets/dist/css/' . $this->plugin_slug . '-gutenberg-editor' . $this->asset_suffix . '.css';
-
-			wp_enqueue_style(
-				$this->plugin_slug . '-gutenberg-editor-css',
-				$gutenberg_editor_css_url,
-				[ 'wp-blocks' ],
-				filemtime( $gutenberg_editor_css_path )
-			);
-		}
+		wp_enqueue_style(
+			$this->plugin_slug . '-block-editor-css',
+			$editor_css_url,
+			[],
+			filemtime( $editor_css_path )
+		);
 	}
 
 	/**
@@ -260,39 +235,36 @@ class Enqueues {
 	 *
 	 * @since   0.1.0
 	 */
-	public function gutenberg_front_js() {
-
-		$do_gutenberg_front_js_enqueue  = apply_filters( $this->plugin_prefix . 'do_gutenberg_front_js_enqueue', true );
-		$do_gutenberg_front_css_enqueue = apply_filters( $this->plugin_prefix . 'do_gutenberg_front_css_enqueue', true );
+	public function block_assets() {
 
 		// This hook enqueues on both the admin and front-end,
 		// so we need to make this conditional.
-		if ( ! is_admin() && $do_gutenberg_front_js_enqueue ) {
+		if ( ! is_admin() ) {
 
-			$gutenberg_front_js_url  = plugins_url( '/assets/dist/js/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.js', $this->plugin_root );
-			$gutenberg_front_js_path = dirname( $this->plugin_root ) . '/assets/dist/js/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.js';
+			$blocks_js_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-blocks.js', $this->plugin_root );
+			$blocks_js_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-blocks.js';
 
 			wp_enqueue_script(
-				$this->plugin_slug . '-gutenberg-front-js',
-				$gutenberg_front_js_url,
-				[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api' ],
-				filemtime( $gutenberg_front_js_path ),
+				$this->plugin_slug . '-blocks-js',
+				$blocks_js_url,
+				$this->dependencies,
+				filemtime( $blocks_js_path ),
 				true
 			);
 		}
 
 		// This hook enqueues on both the admin and front-end,
 		// so we need to make this conditional.
-		if ( ! is_admin() && $do_gutenberg_front_css_enqueue ) {
+		if ( ! is_admin() ) {
 
-			$gutenberg_front_css_url  = plugins_url( '/assets/dist/css/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.css', $this->plugin_root );
-			$gutenberg_front_css_path = dirname( $this->plugin_root ) . '/assets/dist/css/' . $this->plugin_slug . '-gutenberg-front' . $this->asset_suffix . '.css';
+			$blocks_css_url  = plugins_url( '/assets/dist/' . $this->plugin_slug . '-blocks.css', $this->plugin_root );
+			$blocks_css_path = dirname( $this->plugin_root ) . '/assets/dist/' . $this->plugin_slug . '-blocks.css';
 
 			wp_enqueue_style(
-				$this->plugin_slug . '-gutenberg-front-css',
-				$gutenberg_front_css_url,
-				[ 'wp-blocks' ],
-				filemtime( $gutenberg_front_css_path )
+				$this->plugin_slug . '-blocks-css',
+				$blocks_css_url,
+				[],
+				filemtime( $blocks_css_path )
 			);
 		}
 	}

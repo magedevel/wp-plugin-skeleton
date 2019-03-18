@@ -5,8 +5,6 @@
  * @since   0.1.0
  *
  * @package DTG\Plugin_Name
- *
- * @todo - Needs work to provide proper validation ahead of an uninstall.
  */
 
 namespace DTG\Plugin_Name;

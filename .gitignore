@@ -12,6 +12,7 @@ composer.lock
 package-lock.json
 yarn.lock
 yarn-error.log
+wpcs-errors.md
 
 # Assets
 # -------------------------------------

@@ -7,21 +7,18 @@
 
 	<description>Coding standards for Plugin Name using WP Enforcer.</description>
 
-	<!-- Explicitly point to where WPCS lives in the project -->
+	<!-- Explicitly point to where WPCS lives in the plugin -->
 	<config name="installed_paths" value="wpcs" />
 
-	<!-- Excludes: Generic -->
-	<exclude-pattern>*/node_modules/*</exclude-pattern>
-	<exclude-pattern>*/tests/*</exclude-pattern>
-	<exclude-pattern>*.json</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
-	<exclude-pattern>*.min.js</exclude-pattern>
-
-	<!-- Excludes: Plugin Specific -->
+	<!-- Excludes -->
+	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>
 	<exclude-pattern>blocks/*</exclude-pattern>
 	<exclude-pattern>languages/*</exclude-pattern>
-	<exclude-pattern>phpcs.xml</exclude-pattern>
+	<exclude-pattern>tests/*</exclude-pattern>
+	<exclude-pattern>wpcs/*</exclude-pattern>
+	<exclude-pattern>*.json</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
 
 	<!--
 		Don't get angry about checking files that don't contain code
